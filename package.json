@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MarcManiez/scrubd/issues"
   },
-  "homepage": "https://github.com/MarcManiez/scrubd#readme"
+  "homepage": "https://github.com/MarcManiez/scrubd#readme",
+  "dependencies": {
+    "mysql": "^2.12.0"
+  }
 }
