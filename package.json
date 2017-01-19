@@ -1,0 +1,19 @@
+{
+  "name": "scrubd",
+  "version": "1.0.0",
+  "description": "Hack Reactor greenfield project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scrubd/scrubd.git"
+  },
+  "author": "Barton Young, Joseph Luk, Marc Maniez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcManiez/scrubd/issues"
+  },
+  "homepage": "https://github.com/MarcManiez/scrubd#readme"
+}

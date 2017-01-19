@@ -1,0 +1,11 @@
+# node modules and bower components
+
+node_modules/
+client/lib
+
+# compiled files
+
+client/compiled
+
+# API keys
+

@@ -1,0 +1,21 @@
+{
+  "name": "scrubd",
+  "description": "Hack Reactor greenfield project",
+  "main": "index.js",
+  "authors": [
+    "Barton Young",
+    "Joseph Luk",
+    "Marc Maniez"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Scrubd/scrubd.git",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./client/lib",
+    "test",
+    "tests"
+  ]
+}
