@@ -23,6 +23,7 @@ CREATE TABLE Videos (
 CREATE TABLE Comments (
   id INTEGER NOT NULL AUTO_INCREMENT,
   time_stamp timestamp NOT NULL,
+  comment text NOT NULL,
   user_id integer NOT NULL,
   video_id integer NOT NULL,
   PRIMARY KEY (id)
