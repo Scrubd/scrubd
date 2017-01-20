@@ -1,3 +1,6 @@
+import React from 'react';
+import SingleComment from './SingleComment.jsx';
+
 const VideoPlayer = () => (
   <div>
     <video id="sampleMovie" width="640" height="360" preload controls>
@@ -9,6 +12,4 @@ const VideoPlayer = () => (
   </div>
   );
 
-
-
-
+export default VideoPlayer;
