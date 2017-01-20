@@ -1,6 +1,6 @@
 const SingleComment = () => (
   <div className='container'>
-    <input placeholder="Enter comment..."></input>
-
+    <input placeholder="Submit comment..."></input>
+    <button>Submit</button>
   </div>
 );
