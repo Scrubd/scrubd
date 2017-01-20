@@ -4,7 +4,8 @@
   "description": "Hack Reactor greenfield project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel . --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled,client/lib --source-maps inline -w"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,16 @@
   },
   "homepage": "https://github.com/MarcManiez/scrubd#readme",
   "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "mysql": "^2.12.0",
     "sequelize": "^3.29.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-watch": "^2.0.5"
   }
 }
