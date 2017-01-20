@@ -8,6 +8,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [new HtmlWebpackPlugin({title: 'Scrubd'})],
+  devtool: 'source-map',
   module: {
     loaders: [
       {
