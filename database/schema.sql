@@ -16,19 +16,19 @@ CREATE TABLE Videos (
   id INTEGER NOT NULL AUTO_INCREMENT,
   url CHAR(255) NOT NULL,
   views INTEGER DEFAULT 0,
-  user_id integer NOT NULL,
+  -- user_id integer NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE Comments (
   id INTEGER NOT NULL AUTO_INCREMENT,
   comment text NOT NULL,
-  user_id integer NOT NULL,
-  video_id integer NOT NULL,
+  -- user_id integer NOT NULL,
+  -- video_id integer NOT NULL,
   time_stamp DECIMAL(10, 3) NOT NULL,
   PRIMARY KEY (id)
 );
 
-ALTER TABLE Videos ADD FOREIGN KEY (user_id) REFERENCES Users (id);
-ALTER TABLE Comments ADD FOREIGN KEY (user_id) REFERENCES Users (id);
-ALTER TABLE Comments ADD FOREIGN KEY (video_id) REFERENCES Videos (id);
+-- ALTER TABLE Videos ADD FOREIGN KEY (user_id) REFERENCES Users (id);
+-- ALTER TABLE Comments ADD FOREIGN KEY (user_id) REFERENCES Users (id);
+-- ALTER TABLE Comments ADD FOREIGN KEY (video_id) REFERENCES Videos (id);
