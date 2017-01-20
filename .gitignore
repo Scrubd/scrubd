@@ -6,6 +6,7 @@ client/lib
 # compiled files
 
 client/compiled
+dist
 
 # API keys
 
