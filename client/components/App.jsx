@@ -6,7 +6,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-          <h1>Hello World</h1>
+        <div className='container-fluid'>
+          <h1>HELLO!</h1>
+        </div>
       </div>
     );
   }
