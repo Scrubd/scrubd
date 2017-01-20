@@ -2,9 +2,9 @@
 
 CREATE DATABASE scrubd;
 
-use scrubd;
+USE scrubd;
 
-DROP TABLE IF EXISTS Users;
+-- DROP TABLE IF EXISTS Users;
 
 CREATE TABLE Users (
   id INTEGER NOT NULL AUTO_INCREMENT,
@@ -22,10 +22,10 @@ CREATE TABLE Videos (
 
 CREATE TABLE Comments (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  time_stamp timestamp NOT NULL,
   comment text NOT NULL,
   user_id integer NOT NULL,
   video_id integer NOT NULL,
+  time_stamp DECIMAL(10, 3) NOT NULL,
   PRIMARY KEY (id)
 );
 
