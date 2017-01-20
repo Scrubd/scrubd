@@ -43,6 +43,12 @@ User.sync();
 Video.sync();
 Comment.sync();
 
+module.exports.User = User;
+
+module.exports.Video = Video;
+
+module.exports.Comment = Comment;
+
 // User.find()
 // .then( (result) => {
 //   if (result) {
