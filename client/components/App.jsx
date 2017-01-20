@@ -5,9 +5,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='container-fluid'>
-          <h1>HELLO!</h1>
+      <div className="container-fluid">
+        <h1>Scrubd</h1>
+        <div className='row'>
+          <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
+            <VideoPlayer />
+          </div>
         </div>
       </div>
     );
