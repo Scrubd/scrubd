@@ -1,8 +1,8 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var morgan = require('morgan');
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
 
+const app = express();
 app.listen(3000);
 
 app.use(morgan('dev'));
