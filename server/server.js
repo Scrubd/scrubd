@@ -1,16 +1,39 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var morgan = require('morgan');
+const express = require('express');
+const router = require('express').Router();
+const app = express();
+const path = require('path');
+const morgan = require('morgan');
+const controller = require('../database/controller');
+const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser')
 
-app.listen(3000)
+app.use(morgan('dev'));
 
-// app.use(express.static('dist'));
+app.listen(port)
+
+//Static serve files
 app.use(express.static('../dist'))
 
-// app.get('/', function(req, res) {
-//     // res.send("heyy");
-//     res.sendFile(path.join(__dirname + '/../dist/index.html'));
+// in case we want json encoded bodies
+app.use(bodyParser.json());
 
-//     console.log("heyyy");
-// });
+//to retrieve ALL comments. 
+app.get('/api/comments', controller.comments.get)
+
+//Dummy tests for Postman
+// app.get('/api/comments', function(req, res){
+//   res.send("get is working")
+// })
+
+//to post a comment
+app.post('/api/comments', controller.comments.post)
+
+
+// Dummy tests for Postman
+// app.post('/api/comments', function(req, res){
+//   res.send(req.body.foo + ": post is working")
+// })
+
+
+
+
