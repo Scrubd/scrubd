@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js'
   },
-  plugins: [new HtmlWebpackPlugin({title: 'Scrubd'})],
+  plugins: [new HtmlWebpackPlugin({title: 'Scrubddd'})],
   devtool: 'source-map',
   module: {
     loaders: [
