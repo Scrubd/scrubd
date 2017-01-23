@@ -4,8 +4,10 @@ const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const controller = require('../database/controller');
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser')
+
+app.use(morgan('dev'));
 
 app.listen(port)
 
@@ -18,18 +20,20 @@ app.use(bodyParser.json());
 //to retrieve ALL comments. 
 app.get('/api/comments', controller.comments.get)
 
+//Dummy tests for Postman
+// app.get('/api/comments', function(req, res){
+//   res.send("get is working")
+// })
+
 //to post a comment
 app.post('/api/comments', controller.comments.post)
-  //get comment from req.body
-    //use comment data as argument for sendComment controller
-      //invoke controller
 
 
-const path = require('path');
-const morgan = require('morgan');
+// Dummy tests for Postman
+// app.post('/api/comments', function(req, res){
+//   res.send(req.body.foo + ": post is working")
+// })
 
-const app = express();
-app.listen(3000);
 
-app.use(morgan('dev'));
-app.use(express.static('../dist'));
+
+
