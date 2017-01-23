@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<video id="testVideo" width="320" height="176" controls>
+  <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+
+</video>
+
+<script>
+var vid = document.getElementById("myVideo");
+
+function getCurTime() { 
+    alert(vid.currentTime);
+} 
+
+function setCurTime() { 
+    vid.currentTime=5;
+} 
+</script> 
+
+<p>Video courtesy of <a href="http://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+
+</body> 
+</html>
