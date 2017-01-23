@@ -8,10 +8,19 @@ class SingleComment extends React.Component {
   }
 
   commentSubmit (event) {
+    event.preventDefault();
     var comment = this.refs.comment.value;
-    var video = document.getElementsByTagName('video');
-    var timeStamp = video.media.currentTime;
-    console.log('message:', comment, 'Current Time', timeStamp);
+    this.refs.comment.value = '';
+    var currentVideo = document.getElementsByTagName('video');
+    var timeStamp = currentVideo.media.currentTime;
+    var videoSource = currentVideo.media.currentSrc;
+    var data = {
+      user: 'Marc',
+      message: comment,
+      video: videoSource,
+      timeStamp: timeStamp
+    };
+    console.log(data);
   }
 
   render() {
