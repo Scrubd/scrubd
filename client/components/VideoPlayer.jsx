@@ -3,8 +3,8 @@ import SingleComment from './SingleComment.jsx';
 
 const VideoPlayer = () => (
   <div>
-    <video id="sampleMovie" width="640" height="360" preload controls>
-        <source src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+    <video name="media" width="640" height="360" preload controls>
+      <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" />
     </video>
     <div id="SingleComment">
       <SingleComment />
