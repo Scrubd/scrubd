@@ -10,3 +10,7 @@ h1 {
 #SingleComment {
   border: 1px solid green;
 }
+
+.comments {
+  border: 1px solid black;
+}
