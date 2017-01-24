@@ -7,13 +7,6 @@ import AxiosHelper from '../../server/axios-helper';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      video: "https://media.w3.org/2010/05/sintel/trailer.mp4",
-      comments: []
-    }
-  }
 
   componentDidMount() {
     AxiosHelper.getComments(this.state.video, comments => {
@@ -31,10 +24,10 @@ class App extends React.Component {
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
           {console.log(this.props)}
           <h1>{this.props.video}</h1>
-            <VideoPlayer currentVideo={this.state.video}/>
+            <VideoPlayer currentVideo={this.props.video}/>
           </div>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
-            <CommentBox comments={this.state.comments} />
+            <CommentBox comments={this.props.comments} />
           </div>
         </div>
       </div>
@@ -44,5 +37,5 @@ class App extends React.Component {
 
 export default connect(state => ({
   video: state.video.currentVideo,
-  comments: state.comments,
+  comments: state.comments.comments,
 }))(App);
