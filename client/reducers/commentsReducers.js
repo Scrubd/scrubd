@@ -9,6 +9,14 @@ export default function reducer(state, action) {
     console.log('Comments fetch failed.');
     break;
   }
+  case 'SUBMIT_COMMENT_FULFILLED': {
+    console.log('Comment successfully registered.');
+    break;
+  }
+  case 'SUBMIT_COMMENT_FAILED': {
+    console.log('Comment failed to register.');
+    break;
+  }
   // no default
   }
   return newState;
