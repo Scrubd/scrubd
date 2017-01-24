@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 const Comment = ({comment}) => (
   <div>
-    <span>{comment.name}@{comment.time_stamp}</span><br/>
-    {comment.message}
+    <span>{comment.User.name}@{comment.time_stamp}</span><br/>
+    {comment.comment}
   </div>
   );
 
