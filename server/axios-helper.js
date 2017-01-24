@@ -1,17 +1,15 @@
-var axios = require('axios'); 
+var axios = require('axios');
 
 var submitComment = function(data){
   axios.post('/api/comments', data);
 };
 
-var getComments = function(url){
-  console.log("get comments funcntion fired")
+var getComments = function(url, callback){
   axios.get('/api/comments', {
-    params: {URL: url
-    }
+    params: {URL: url}
   })
   .then(function (response) {
-    console.log(response);
+    callback(response.data);
   })
 };
 
