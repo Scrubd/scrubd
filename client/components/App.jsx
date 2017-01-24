@@ -1,20 +1,24 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { fetchComments } from '../actions/commentsActions';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
 import AxiosHelper from '../../server/axios-helper';
 
-
 class App extends React.Component {
 
-  componentDidMount() {
-    AxiosHelper.getComments(this.state.video, comments => {
-      this.setState({
-        comments: comments
-      });
-    });
+  componentWillMount() {
+    this.props.dispatch(fetchComments(this.props.video));
   }
+
+  // componentDidMount() {
+  //   AxiosHelper.getComments(this.state.video, comments => {
+  //     this.setState({
+  //       comments: comments
+  //     });
+  //   });
+  // }
 
   render() {
     return (
@@ -22,8 +26,6 @@ class App extends React.Component {
         <h1>Scrubd</h1>
         <div className='row'>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
-          {console.log(this.props)}
-          <h1>{this.props.video}</h1>
             <VideoPlayer currentVideo={this.props.video}/>
           </div>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>

@@ -1,3 +1,4 @@
+import { submitComment } from '../actions/commentsActions';
 import React from 'react';
 import ReactDOM from 'react-dom';
 // var axios = require('axios');
