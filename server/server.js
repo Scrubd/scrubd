@@ -3,7 +3,7 @@ const router = require('express').Router();
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
-// const controller = require('../database/controller');
+const controller = require('../database/controller');
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
