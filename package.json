@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel . --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled,client/lib --source-maps inline -w",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "data": "node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
   },
   "repository": {
     "type": "git",
