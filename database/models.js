@@ -49,16 +49,30 @@ module.exports.Video = Video;
 
 module.exports.Comment = Comment;
 
-// User.find()
-// .then( (result) => {
-//   if (result) {
-//     console.log(result.dataValues);
-//   }
-// });
+// Comment.findAll({
+//   order: 'time_stamp ASC',
+//   attributes: ['comment', 'time_stamp'],
+//   include: [
+//     {
+//       model: User,
+//       attributes: ['name']
+//     }
+//   ]
+// })
+//   .then(results => {
+//     if (results) {
+//       console.log(results);
+//       const comments = [];
+//       for (let item of results) {
+//         comments.push(item.dataValues);
+//       }
+//       console.log(comments);
+//     }
+//   });
 
 // var hey;
 
-// User.create({name: 'MARC'})
+// User.create({name: 'JOSEPH'})
 // .then(instance => {
 //   if (instance) {
 //     hey = instance;
@@ -66,9 +80,22 @@ module.exports.Comment = Comment;
 //   }
 // });
 
-// Video.create({url: 'http://docs.sequelizejs.com/en/latest/docs/'})
-// .then(instance => {
-//   if (instance) {
-//     instance.setUser(hey);
-//   }
-// });
+// Video.create({url: 'https://media.w3.org/2010/05/sintel/trailer.mp4'})
+//   .then(video => {
+//     User.findOne({where: {name: 'JOSEPH'}})
+//       .then(user => {
+//         video.setUser(user);
+//       });
+//   });
+
+// Comment.create({comment: 'This video is 2 funni lel', time_stamp: 32})
+//   .then(comment => {
+//     Video.findOne({where: {url: 'https://media.w3.org/2010/05/sintel/trailer.mp4'}})
+//       .then(video => {
+//         comment.setVideo(video);
+//       });
+//     User.findOne({where: {name: 'JOSEPH'}})
+//       .then(user => {
+//         comment.setUser(user);
+//       });
+//   });
