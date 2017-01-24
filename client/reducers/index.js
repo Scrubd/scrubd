@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import comments from './commentsReducers';
-import videos from './videoReducers';
+import video from './videoReducers';
 
 export default combineReducers({
   comments,
-  videos,
+  video,
 });
