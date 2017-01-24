@@ -72,7 +72,7 @@ module.exports.Comment = Comment;
 
 // var hey;
 
-// User.create({name: 'MARC'})
+// User.create({name: 'JOSEPH'})
 // .then(instance => {
 //   if (instance) {
 //     hey = instance;
@@ -80,7 +80,7 @@ module.exports.Comment = Comment;
 //   }
 // });
 
-// Video.create({url: 'http://testURL.com'})
+// Video.create({url: 'https://media.w3.org/2010/05/sintel/trailer.mp4'})
 //   .then(video => {
 //     User.findOne({where: {name: 'JOSEPH'}})
 //       .then(user => {
@@ -88,9 +88,9 @@ module.exports.Comment = Comment;
 //       });
 //   });
 
-// Comment.create({comment: '#5 test comment', time_stamp: 32})
+// Comment.create({comment: 'This video is 2 funni lel', time_stamp: 32})
 //   .then(comment => {
-//     Video.findOne({where: {url: 'http://testURL.com'}})
+//     Video.findOne({where: {url: 'https://media.w3.org/2010/05/sintel/trailer.mp4'}})
 //       .then(video => {
 //         comment.setVideo(video);
 //       });

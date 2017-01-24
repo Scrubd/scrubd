@@ -18,6 +18,7 @@ app.use(express.static('../dist'));
 app.use(bodyParser.json());
 
 //to retrieve ALL comments. 
+
 app.get('/api/comments', controller.comments.get);
 
 //Dummy tests for Postman
@@ -28,11 +29,11 @@ app.get('/api/comments', controller.comments.get);
 //to post a comment
 app.post('/api/comments', controller.comments.post);
 
-
 // Dummy tests for Postman
-// app.post('/api/comments', function(req, res){
-//   res.send(req.body.foo + ": post is working")
-// })
+app.post('/api/comments', function(req, res){
+  console.log(req.body);
+  res.send(req.body + ": post is working");
+})
 
 
 

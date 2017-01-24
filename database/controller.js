@@ -9,7 +9,9 @@ const Comment = models.Comment;
 module.exports = {
   comments: {
     get: function (req, res) {
-      const URL = url.parse(req.url, true).query.url;
+      const URL = url.parse(req.url, true).query.URL;
+      console.log(URL);
+      console.log(req.url);
       Video.findOne({where: {url: URL} })
         .then(video => {
           Comment.findAll({
