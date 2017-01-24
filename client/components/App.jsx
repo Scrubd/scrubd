@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
-
-
-
+import AxiosHelper from '../../server/axios-helper.js';
 
 
 
@@ -13,20 +11,16 @@ class App extends React.Component {
     super(props);
     this.state = {
       video: "https://media.w3.org/2010/05/sintel/trailer.mp4",
-      comments: [
-        {name: "Marc", message: "This is a test comment", time_stamp: '1:15'},
-        {name: "Joseph", message: "This is another test comment", time_stamp: '1:16'},
-        {name: "Barton", message: "This the third test comment", time_stamp: '1:18'},
-      ]
-      // comments: null
+      comments: []
     }
+  }
 
-    // componentDidMount () {
-    //   // this.setState({
-    //   //   comments:
-    //   // })
-    // }
-
+  componentDidMount() {
+    AxiosHelper.getComments(this.state.video, comments => {
+      this.setState({
+        comments: comments
+      });
+    });
   }
 
   render() {
