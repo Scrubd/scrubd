@@ -5,6 +5,7 @@ var submitComment = function(data){
 };
 
 var getComments = function(url){
+  console.log("get comments funcntion fired")
   axios.get('/api/comments', {
     params: {URL: url
     }
