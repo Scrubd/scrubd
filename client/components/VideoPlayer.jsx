@@ -1,14 +1,10 @@
 import React from 'react';
-import SingleComment from './SingleComment.jsx';
 
-const VideoPlayer = () => (
+const VideoPlayer = (props) => (
   <div>
     <video name="media" width="640" height="360" preload controls>
-      <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" />
+      <source src={props.currentVideo}/>
     </video>
-    <div id="SingleComment">
-      <SingleComment />
-    </div>
   </div>
   );
 

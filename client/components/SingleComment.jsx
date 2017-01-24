@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// var axios = require('axios');
+var axiosHelper = require('../../server/axios-helper.js')
 
 class SingleComment extends React.Component {
 
@@ -7,7 +9,7 @@ class SingleComment extends React.Component {
    super(props);
   }
 
-  commentSubmit (event) {
+  commentSubmit () {
     event.preventDefault();
     var comment = this.refs.comment.value;
     this.refs.comment.value = '';
@@ -15,12 +17,12 @@ class SingleComment extends React.Component {
     var timeStamp = currentVideo.media.currentTime;
     var videoSource = currentVideo.media.currentSrc;
     var data = {
-      user: 'Marc',
-      message: comment,
-      video: videoSource,
-      timeStamp: timeStamp
+      name: 'JOSEPH',
+      comment: comment,
+      URL: videoSource,
+      time_stamp: timeStamp
     };
-    console.log(data);
+    axiosHelper.submitComment(data);
   }
 
   render() {
