@@ -49,12 +49,26 @@ module.exports.Video = Video;
 
 module.exports.Comment = Comment;
 
-// User.find()
-// .then( (result) => {
-//   if (result) {
-//     console.log(result.dataValues);
-//   }
-// });
+// Comment.findAll({
+//   order: 'time_stamp ASC',
+//   attributes: ['comment', 'time_stamp'],
+//   include: [
+//     {
+//       model: User,
+//       attributes: ['name']
+//     }
+//   ]
+// })
+//   .then(results => {
+//     if (results) {
+//       console.log(results);
+//       const comments = [];
+//       for (let item of results) {
+//         comments.push(item.dataValues);
+//       }
+//       console.log(comments);
+//     }
+//   });
 
 // var hey;
 
@@ -66,9 +80,22 @@ module.exports.Comment = Comment;
 //   }
 // });
 
-// Video.create({url: 'http://docs.sequelizejs.com/en/latest/docs/'})
-// .then(instance => {
-//   if (instance) {
-//     instance.setUser(hey);
-//   }
-// });
+// Video.create({url: 'http://testURL.com'})
+//   .then(video => {
+//     User.findOne({where: {name: 'JOSEPH'}})
+//       .then(user => {
+//         video.setUser(user);
+//       });
+//   });
+
+// Comment.create({comment: '#5 test comment', time_stamp: 32})
+//   .then(comment => {
+//     Video.findOne({where: {url: 'http://testURL.com'}})
+//       .then(video => {
+//         comment.setVideo(video);
+//       });
+//     User.findOne({where: {name: 'JOSEPH'}})
+//       .then(user => {
+//         comment.setUser(user);
+//       });
+//   });
