@@ -46,6 +46,7 @@
     "eslint-plugin-react": "^6.9.0",
     "html-webpack-plugin": "^2.26.0",
     "morgan": "^1.7.0",
+    "redux-logger": "^2.7.4",
     "webpack": "^1.14.0"
   }
 }
