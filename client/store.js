@@ -4,5 +4,8 @@ import thunk from 'redux-thunk';
 import reducer from './reducers/index';
 
 const middleware = applyMiddleware(logger(), thunk);
-
-export default createStore(reducer, middleware);
+const defaultStore = {
+  video: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
+  comments: [],
+};
+export default createStore(reducer, defaultStore, middleware);
