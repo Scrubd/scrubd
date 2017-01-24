@@ -17,7 +17,7 @@ app.use(express.static('../dist'))
 // in case we want json encoded bodies
 app.use(bodyParser.json());
 
-//to retrieve ALL comments. 
+//to retrieve ALL comments.
 app.get('/api/comments', controller.comments.get)
 
 //Dummy tests for Postman
