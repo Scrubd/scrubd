@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 
 const db = new Sequelize('scrubd', 'root', '');
 
+db.query('set foreign_key_checks=0', null);
+
 const User = db.define('User', {
   name: {
     type: Sequelize.CHAR(20),
