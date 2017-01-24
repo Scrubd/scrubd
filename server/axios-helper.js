@@ -1,4 +1,4 @@
-var axios = require('axios'); 
+var axios = require('axios');
 
 module.exports = {
   submitComment: function (data) {

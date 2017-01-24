@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// var axios = require('axios'); 
+// var axios = require('axios');
 var axiosHelper = require('../../server/axios-helper.js')
 
 class SingleComment extends React.Component {
@@ -23,8 +23,6 @@ class SingleComment extends React.Component {
       time_stamp: timeStamp
     };
     axiosHelper.submitComment(data);
-    axiosHelper.getComments(videoSource);
-    // console.log(data);
   }
 
   render() {
