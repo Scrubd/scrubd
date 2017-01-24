@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/MarcManiez/scrubd#readme",
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
