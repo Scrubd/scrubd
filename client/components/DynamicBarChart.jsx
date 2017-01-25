@@ -38,7 +38,6 @@ class DynamicBarChart extends React.Component {
   handleClick(data, index) {
     this.setState({
       activeIndex: index, 
-      targetTime: 
     })
   }
 
