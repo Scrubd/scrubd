@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import { fetchComments } from '../actions/commentsActions';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
-import AxiosHelper from '../../server/axios-helper.js';
-import SimpleBarChart from './SimpleBarChart.jsx'
+import DynamicBarChart from './DynamicBarChart.jsx'
 
 
 class App extends React.Component {
@@ -22,11 +21,11 @@ class App extends React.Component {
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
             <VideoPlayer currentVideo={this.props.video}/>
           </div>
+          <div>
+            <DynamicBarChart />
+          </div>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
             <CommentBox comments={this.props.comments} />
-          </div>
-          <div>
-            <SimpleBarChart />
           </div>
         </div>
       </div>

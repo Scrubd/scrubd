@@ -32,11 +32,13 @@ class DynamicBarChart extends React.Component {
     this.state = {
       data: data, 
       activeIndex: 0,
+      targetTime: null
     }
   }
   handleClick(data, index) {
     this.setState({
-      activeIndex: index 
+      activeIndex: index, 
+      targetTime: 
     })
   }
 
@@ -62,6 +64,7 @@ class DynamicBarChart extends React.Component {
         </Bar>
         </BarChart>
         <p class="content">{`Uv of "${activeItem.name}": ${activeItem.uv}`}</p>
+
       </div>
     );
   }

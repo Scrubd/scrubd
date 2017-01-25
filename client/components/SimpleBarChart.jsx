@@ -28,9 +28,13 @@ const data = [
 ];
 class SimpleBarChart extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
+    this.state = {
+      data: data, 
+      activeIndex: 0,
+    }
   }
-  handleUvBarClick() {
+  handleClick() {
     var targetVid = document.getElementById("media");
     targetVid.currentTime = 24;
     console.log("clicked!");
@@ -39,15 +43,15 @@ class SimpleBarChart extends React.Component {
 
   render () {
     return (
-      <BarChart width={650} height={150} data={data}
+      <BarChart width={500} height={150} data={data}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
        <XAxis dataKey="name"/>
        <YAxis/>
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Bar dataKey="pv" fill="#8884d8" onClick={this.handleUvBarClick} />
-       <Bar dataKey="uv" fill="#82ca9d" onClick={this.handleUvBarClick}/>
+       <Bar dataKey="pv" fill="#8884d8" onClick={this.handleClick} />
+       <Bar dataKey="uv" fill="#82ca9d" onClick={this.handleClick}/>
       </BarChart>
     );
   }
