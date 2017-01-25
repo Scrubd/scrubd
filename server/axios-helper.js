@@ -2,6 +2,7 @@ var axios = require('axios');
 
 var submitComment = function(data){
   axios.post('/api/comments', data);
+  // TODO: manage failure scenario.
 };
 
 var getComments = function(url, callback){

@@ -1,33 +1,36 @@
 const Sequelize = require('sequelize');
+
 const db = new Sequelize('scrubd', 'root', '');
+
+db.query('set foreign_key_checks=0', null);
 
 const User = db.define('User', {
   name: {
     type: Sequelize.CHAR(20),
-    unique: true
-  }
+    unique: true,
+  },
 }, {
-  timestamps: false
+  timestamps: false,
 });
 
 const Video = db.define('Video', {
   url: {
     type: Sequelize.CHAR(255),
-    unique: true
+    unique: true,
   },
   views: {
     type: Sequelize.INTEGER,
-    defaultValue: 0
-  }
+    defaultValue: 0,
+  },
 }, {
-  timestamps: false
+  timestamps: false,
 });
 
 const Comment = db.define('Comment', {
   comment: Sequelize.TEXT,
-  time_stamp: Sequelize.DECIMAL(10, 3)
+  time_stamp: Sequelize.DECIMAL(10, 3),
 }, {
-  timestamps: false
+  timestamps: false,
 });
 
 User.hasMany(Comment);
