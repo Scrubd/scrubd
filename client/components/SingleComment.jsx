@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Player from '@vimeo/player';
-// var axios = require('axios');
-var axiosHelper = require('../../server/axios-helper.js')
+import { connect } from 'react-redux';
+import { submitComment } from '../actions/commentsActions';
 
 class SingleComment extends React.Component {
 
@@ -14,7 +14,6 @@ class SingleComment extends React.Component {
     event.preventDefault();
     var comment = this.refs.comment.value;
     this.refs.comment.value = '';
-
     var iframe = document.querySelector('iframe');
     var player = new Player(iframe);
     var videoSource = player.element.getAttribute('src');
@@ -29,8 +28,8 @@ class SingleComment extends React.Component {
           URL: videoSource,
           time_stamp: seconds
         };
-        axiosHelper.submitComment(data);
-      })
+        this.props.dispatch(submitComment(data));
+      });
   }
 
 
@@ -44,4 +43,4 @@ class SingleComment extends React.Component {
   }
 }
 
-export default SingleComment;
+export default connect(null)(SingleComment);

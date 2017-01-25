@@ -1,26 +1,14 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { fetchComments } from '../actions/commentsActions';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
-import AxiosHelper from '../../server/axios-helper.js';
-
-
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      video: "https://player.vimeo.com/video/76979871",
-      comments: []
-    }
-  }
 
-  componentDidMount() {
-    AxiosHelper.getComments(this.state.video, comments => {
-      this.setState({
-        comments: comments
-      });
-    });
+  componentWillMount() {
+    this.props.dispatch(fetchComments(this.props.video));
   }
 
   render() {
@@ -29,10 +17,10 @@ class App extends React.Component {
         <h1>Scrubd</h1>
         <div className='row'>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
-            <VideoPlayer currentVideo={this.state.video}/>
+            <VideoPlayer currentVideo={this.props.video}/>
           </div>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
-            <CommentBox comments={this.state.comments} />
+            <CommentBox comments={this.props.comments} />
           </div>
         </div>
       </div>
@@ -40,4 +28,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(state => ({
+  video: state.video.currentVideo,
+  comments: state.comments.comments,
+}))(App);
