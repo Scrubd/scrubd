@@ -4,8 +4,8 @@ import Comment from './Comment.jsx';
 
 const AllComments = (props) => (
     <div>
-      {props.comments.map( comment => {
-        return <Comment comment={comment}/>
+      {props.comments.map( (comment, index) => {
+        return <Comment key={index} comment={comment}/>
       })}
     </div>
   );
