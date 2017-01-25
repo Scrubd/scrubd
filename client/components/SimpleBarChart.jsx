@@ -5,25 +5,25 @@ import ReactDOM from 'react-dom';
 const data = [
       {name: '02', uv: 4000},
       {name: '04', uv: 3000},
-      {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-      {name: 'Page A', uv: 4000},
-      {name: 'Page B', uv: 3000},
-      {name: 'Page C', uv: 2000, pv: 0, amt: 2290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-      {name: 'Page A', uv: 4000},
-      {name: 'Page B', uv: 3000},
-      {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+      {name: '06', uv: 2000, pv: 9800, amt: 2290},
+      {name: '08', uv: 2780, pv: 3908, amt: 2000},
+      {name: '10', uv: 1890, pv: 4800, amt: 2181},
+      {name: '12', uv: 2390, pv: 3800, amt: 2500},
+      {name: '14', uv: 3490, pv: 4300, amt: 2100},
+      {name: '16', uv: 4000},
+      {name: '18', uv: 3000},
+      {name: '20', uv: 2000, pv: 0, amt: 2290},
+      {name: '22', uv: 2780, pv: 3908, amt: 2000},
+      {name: '24', uv: 1890, pv: 9800, amt: 2181},
+      {name: '26', uv: 2390, pv: 3800, amt: 2500},
+      {name: '28', uv: 3490, pv: 4300, amt: 2100},
+      {name: '30', uv: 4000},
+      {name: '32', uv: 3000},
+      {name: '34', uv: 2000, pv: 1300, amt: 2290},
+      {name: '36', uv: 2780, pv: 3908, amt: 2000},
+      {name: '40', uv: 1890, pv: 4800, amt: 2181},
+      {name: '48', uv: 2390, pv: 3800, amt: 2500},
+      {name: '50', uv: 3490, pv: 4300, amt: 2100},
 
 ];
 class SimpleBarChart extends React.Component {
@@ -47,7 +47,7 @@ class SimpleBarChart extends React.Component {
        <Tooltip/>
        <Legend />
        <Bar dataKey="pv" fill="#8884d8" onClick={this.handleUvBarClick} />
-       <Bar dataKey="suv" fill="#82ca9d" onClick={this.handleUvBarClick}/>
+       <Bar dataKey="uv" fill="#82ca9d" onClick={this.handleUvBarClick}/>
       </BarChart>
     );
   }
