@@ -5,17 +5,17 @@ module.exports = {
   entry: './client/init.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
-  plugins: [new HtmlWebpackPlugin({title: 'Scrubddd'})],
+  plugins: [new HtmlWebpackPlugin({ title: 'Scrubd' })],
   devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  }
+        exclude: /node_modules/,
+      },
+    ],
+  },
 };
