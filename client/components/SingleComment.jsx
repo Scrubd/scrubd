@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// var axios = require('axios');
-var axiosHelper = require('../../server/axios-helper.js')
+import { connect } from 'react-redux';
+import { submitComment } from '../actions/commentsActions';
 
 class SingleComment extends React.Component {
 
@@ -22,7 +22,7 @@ class SingleComment extends React.Component {
       URL: videoSource,
       time_stamp: timeStamp
     };
-    axiosHelper.submitComment(data);
+    this.props.dispatch(submitComment(data));
   }
 
   render() {
@@ -35,4 +35,4 @@ class SingleComment extends React.Component {
   }
 }
 
-export default SingleComment;
+export default connect(null)(SingleComment);
