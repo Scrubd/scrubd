@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Player from '@vimeo/player';
 // var axios = require('axios');
 var axiosHelper = require('../../server/axios-helper.js')
 
@@ -13,17 +14,25 @@ class SingleComment extends React.Component {
     event.preventDefault();
     var comment = this.refs.comment.value;
     this.refs.comment.value = '';
-    var currentVideo = document.getElementsByTagName('video');
-    var timeStamp = currentVideo.media.currentTime;
-    var videoSource = currentVideo.media.currentSrc;
-    var data = {
-      name: 'JOSEPH',
-      comment: comment,
-      URL: videoSource,
-      time_stamp: timeStamp
-    };
-    axiosHelper.submitComment(data);
+
+    var iframe = document.querySelector('iframe');
+    var player = new Player(iframe);
+    var videoSource = player.element.getAttribute('src');
+    var timeStamp;
+    var data;
+
+    player.getCurrentTime()
+      .then(function(seconds){
+        data = {
+          name: 'JOSEPH',
+          comment: comment,
+          URL: videoSource,
+          time_stamp: seconds
+        };
+        axiosHelper.submitComment(data);
+      })
   }
+
 
   render() {
     return (
