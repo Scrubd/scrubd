@@ -10,3 +10,6 @@ dist
 
 # API keys
 
+# VS Code config
+
+.vscode
