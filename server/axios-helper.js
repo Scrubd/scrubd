@@ -1,18 +1,16 @@
 var axios = require('axios');
-
-var submitComment = function(data){
-  axios.post('/api/comments', data);
-  // TODO: manage failure scenario.
+module.exports = {
+  submitComment: function (data) {
+    axios.post('/api/comments', data);
+  },
+  getComments: function (url) {
+    console.log('get comments funcntion fired');
+    axios.get('/api/comments', {
+      params: {URL: url
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+    });
+  }
 };
-
-var getComments = function(url, callback){
-  axios.get('/api/comments', {
-    params: {URL: url}
-  })
-  .then(function (response) {
-    callback(response.data);
-  })
-};
-
-module.exports.submitComment = submitComment;
-module.exports.getComments = getComments;
