@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      video: "https://media.w3.org/2010/05/sintel/trailer.mp4",
+      video: "https://player.vimeo.com/video/76979871",
       comments: []
     }
   }
