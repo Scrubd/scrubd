@@ -12,14 +12,6 @@ class App extends React.Component {
     this.props.dispatch(fetchComments(this.props.video));
   }
 
-  // componentDidMount() {
-  //   AxiosHelper.getComments(this.state.video, comments => {
-  //     this.setState({
-  //       comments: comments
-  //     });
-  //   });
-  // }
-
   render() {
     return (
       <div className="container-fluid">
