@@ -1,5 +1,8 @@
 import React from 'react';
 import Player from '@vimeo/player';
+import Scroll from 'react-scroll';
+
+const scroller = Scroll.scroller;
 
 class VideoPlayer extends React.Component {
 
@@ -29,8 +32,11 @@ class VideoPlayer extends React.Component {
     const player = new Player(iframe);
     const that = this;
     player.on('seeked', ((data) => {
-      const lol = findNearestTimeStamp(this.props.comments, data.seconds);
-      debugger;
+      const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
+      scroller.scrollTo(anchor.toString(), {
+        duration: 750,
+        smooth: true,
+      });
       // findNearestTimeStamp(this.props.comments);
     }).bind(this));
   }
