@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Comment = ({comment}) => (
+const Comment = ({ comment }) => (
   <div>
-    <span>{comment.User.name}@{comment.time_stamp}</span><br/>
+    <span id={comment.time_stamp}>{comment.User.name}@{comment.time_stamp}</span><br />
     {comment.comment}
   </div>
   );
