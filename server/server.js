@@ -8,13 +8,13 @@ const controller = require('../database/controller');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(morgan('dev'));
-
 
 app.listen(port, (err) => {
   if (err) console.log('err connecting');
   console.log(`listening on ${port}`);
 });
+
+app.use(morgan('dev'));
 
 // Static serve files
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -22,17 +22,8 @@ app.use(express.static(path.join(__dirname, '../dist')));
 // in case we want json encoded bodies
 app.use(bodyParser.json());
 
-
-
 // to retrieve ALL comments.
-
 app.get('/api/comments', controller.comments.get);
-
-
-// Dummy tests for Postman
-// app.get('/api/comments', function(req, res){
-//   res.send("get is working")
-// })
 
 // to post a comment
 app.post('/api/comments', controller.comments.post);
