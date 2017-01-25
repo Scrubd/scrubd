@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { fetchComments } from '../actions/commentsActions';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
-import AxiosHelper from '../../server/axios-helper';
 
 class App extends React.Component {
 
