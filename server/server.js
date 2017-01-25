@@ -9,10 +9,14 @@ const bodyParser = require('body-parser');
 
 app.use(morgan('dev'));
 
-app.listen(port);
+
+app.listen(port, (err) => {
+  if (err) console.log('err connecting');
+  console.log(`listening on ${port}`);
+});
 
 //Static serve files
-app.use(express.static('../dist'));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // in case we want json encoded bodies
 app.use(bodyParser.json());
