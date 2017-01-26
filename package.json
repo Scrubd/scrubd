@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel . --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled,client/lib --source-maps inline -w",
+    "start": "nodemon ./server/server.js",
     "webpack": "webpack",
     "data": "node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
   },
@@ -29,6 +29,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
+    "react-scroll": "^1.4.5",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.2.0",

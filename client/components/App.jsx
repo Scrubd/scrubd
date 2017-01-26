@@ -15,11 +15,11 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <h1>Scrubd</h1>
-        <div className='row'>
-          <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
-            <VideoPlayer currentVideo={this.props.video}/>
+        <div className="row">
+          <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
+            <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
           </div>
-          <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
+          <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
             <CommentBox comments={this.props.comments} />
           </div>
         </div>
