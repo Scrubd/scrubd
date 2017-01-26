@@ -1,3 +1,5 @@
+import store from '../store';
+
 export default function reducer(state, action) {
   const newState = Object.assign({}, state);
   switch (action.type) {
@@ -10,6 +12,13 @@ export default function reducer(state, action) {
     break;
   }
   case 'SUBMIT_COMMENT_FULFILLED': {
+    const { comment, name, time_stamp } = action.payload;
+    newState.comments = newState.comments.slice();
+    newState.comments.push({
+      User: { name },
+      comment,
+      time_stamp,
+    });
     console.log('Comment successfully registered.');
     break;
   }
