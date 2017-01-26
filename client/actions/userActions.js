@@ -5,7 +5,7 @@ export function signupOrSignin(name) {
   return (dispatch) => {
     axios.post('/api/users', name)
       .then((response) => {
-        const token = response.data.token;
+        const token = response.data;
         window.localStorage.setItem('scrubd', token);
         const payload = JSON.parse(response.config.data).name;
         dispatch({ type: `SIGN${response.status === 201 ? 'UP' : 'IN'}_FULFILLED`, payload });
