@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Scroll from 'react-scroll';
 
-const Comment = ({comment}) => (
+const Element = Scroll.Element;
+
+const Comment = ({ comment }) => (
   <div>
-    <span>{comment.User.name}@{comment.time_stamp}</span><br/>
+    <Element name={comment.time_stamp.toString()} />
+    <span>{comment.User.name}@{comment.time_stamp}</span><br />
     {comment.comment}
   </div>
   );

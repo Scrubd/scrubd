@@ -6,7 +6,7 @@ import reducer from './reducers/index';
 const middleware = applyMiddleware(logger(), thunk);
 const defaultState = {
   video: {
-    currentVideo: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
+    currentVideo: 'https://player.vimeo.com/video/76979871',
   },
   comments: {
     comments: [],
