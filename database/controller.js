@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const models = require('./models');
+const jwt = require('jwt-simple');
 const url = require('url');
 
 const User = models.User;
@@ -58,21 +59,18 @@ module.exports = {
       const name = req.body.name;
       User.findOrCreate({ where: { name } })
         .spread((user, created) => {
-          req.session.user = user.dataValues;
+          const token = jwt.encode(user.dataValues, 'please do not see this, kthx'); // TODO: set to env variable
+          console.log('what is happening?', token, typeof token);
           if (created) {
-            res.status(201).end('Welcome to Scrubd!');
+            res.status(201).end(token);
           } else {
-            res.end('Welcome back to your account!');
+            res.end(token);
           }
         })
         .catch((err) => {
+          console.log('anything here?');
           res.status(500).end('Sorry, something went wrong. It\'s not you, it\'s me. Bye.');
         });
-    },
-    logOut: (req, res) => {
-      req.session.destroy((err) => {
-        res.end('Session ended.');
-      });
     },
   },
 };
