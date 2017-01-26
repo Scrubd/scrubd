@@ -22,7 +22,7 @@ class App extends React.Component {
             <VideoPlayer currentVideo={this.props.video}/>
           </div>
           <div>
-            <DynamicBarChart />
+            <DynamicBarChart comments={this.props.comments}/>
           </div>
           <div className='col-lg-6 col-lg-offset-2' id='VideoPlayer'>
             <CommentBox comments={this.props.comments} />
