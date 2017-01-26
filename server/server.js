@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const controller = require('../database/controller');
 
 const app = express();
@@ -14,12 +13,6 @@ app.listen(port, (err) => {
   if (err) console.log('err connecting');
   console.log(`listening on ${port}`);
 });
-
-app.use(session({
-  secret: 'please do not see this, kthx',
-  saveUninitialized: true,
-  resave: false,
-}));
 
 app.use(morgan('dev'));
 
