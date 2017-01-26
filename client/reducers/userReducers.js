@@ -3,8 +3,8 @@ export default function reducer(state, action) {
   switch (action.type) {
   case 'SIGNUP_FULFILLED':
   case 'SIGNIN_FULFILLED':
-    state.sessionActive = true;
-    state.name = action.payload.name;
+    newState.sessionActive = true;
+    newState.name = action.payload;
     break;
   case 'SIGNIN_OR_SIGNUP_FAILED':
     console.log(action.payload.response);
