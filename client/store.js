@@ -12,7 +12,7 @@ const defaultState = {
     comments: [],
   },
   user: {
-    sessionActive: false,
+    sessionActive: null,
     name: null,
   },
 };
