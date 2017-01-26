@@ -22,7 +22,7 @@ class SingleComment extends React.Component {
     // var that = this;
 
     player.getCurrentTime()
-      .then(function(seconds){
+      .then((((seconds) => {
         data = {
           name: 'JOSEPH',
           comment: comment,
@@ -30,7 +30,7 @@ class SingleComment extends React.Component {
           time_stamp: seconds
         };
         this.props.dispatch(submitComment(data));
-      }.bind(this));
+      }).bind(this));
   }
 
 
