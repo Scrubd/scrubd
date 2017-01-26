@@ -59,13 +59,15 @@ module.exports = {
       const name = req.body.name;
       User.findOrCreate({ where: { name } })
         .spread((user, created) => {
-          // create a session
+          req.session.user = user.dataValues;
           if (created) {
-            res.end('Welcome to Scrubd!');
+            res.status(201).end('Welcome to Scrubd!');
           } else {
             res.end('Welcome back to your account!');
           }
-          res.end();
+        })
+        .catch((err) => {
+          res.status(500).end('Sorry, something went wrong. It\'s not you, it\'s me. Bye.');
         });
     },
   },
