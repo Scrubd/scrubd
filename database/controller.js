@@ -53,5 +53,24 @@ module.exports = {
         });
     },
   },
+  users: {
+    logIn: (req, res) => {
+      console.log('REQ BODY', req.body);
+      const name = req.body.name;
+      User.findOrCreate({ where: { name } })
+        .spread((user, created) => {
+          // create a session
+          if (created) {
+            res.end('Welcome to Scrubd!');
+          } else {
+            res.end('Welcome back to your account!');
+          }
+          res.end();
+        });
+    },
+  },
+  logOut: (req, res) => {
+
+  },
 };
 
