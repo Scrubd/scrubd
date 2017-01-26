@@ -18,7 +18,7 @@ app.listen(port, (err) => {
 app.use(session({
   secret: 'please do not see this, kthx',
   saveUninitialized: true,
-  resave: true,
+  resave: false,
 }));
 
 app.use(morgan('dev'));
