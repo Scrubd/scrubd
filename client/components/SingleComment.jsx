@@ -22,7 +22,7 @@ class SingleComment extends React.Component {
     // var that = this;
 
     player.getCurrentTime()
-      .then((((seconds) => {
+      .then(((seconds) => {
         data = {
           name: 'JOSEPH',
           comment: comment,
