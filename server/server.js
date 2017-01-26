@@ -9,8 +9,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
-app.listen(port, (err) => {
-  if (err) console.log('err connecting');
+app.listen(port, err => {
+  if (err) {
+console.log('err connecting');
+}
   console.log(`listening on ${port}`);
 });
 
@@ -27,8 +29,5 @@ app.get('/api/comments', controller.comments.get);
 
 // to post a comment
 app.post('/api/comments', controller.comments.post);
-
-
-
-
-
+// to post a video URL
+app.post('/api/videos', controller.videos.post);

@@ -11,7 +11,7 @@ module.exports = {
     get: (req, res) => {
       const URL = url.parse(req.url, true).query.URL;
       Video.findOne({ where: { url: URL } })
-        .then((video) => {
+        .then(video => {
           Comment.findAll({
             where: { VideoId: video.dataValues.id },
             order: 'time_stamp ASC',
@@ -19,11 +19,11 @@ module.exports = {
             include: [
               {
                 model: User,
-                attributes: ['name'],
-              },
-            ],
+                attributes: ['name']
+              }
+            ]
           })
-            .then((results) => {
+            .then(results => {
               if (results) {
                 const comments = [];
                 for (const item of results) {
@@ -37,21 +37,45 @@ module.exports = {
     post: (req, res) => {
       const { comment, time_stamp, URL, name } = req.body;
       Comment.create({ comment, time_stamp })
-        .then((commentIntance) => {
+        .then(commentIntance => {
           Video.findOne({ where: { url: URL } })
-            .then((video) => {
+            .then(video => {
               commentIntance.setVideo(video);
               User.findOne({ where: { name } })
-                .then((user) => {
+                .then(user => {
                   commentIntance.setUser(user);
                   res.sendStatus(201);
                 });
             });
         })
-        .catch((err) => {
+        .catch(err => {
           res.status(400).end(JSON.stringify(err));
         });
-    },
+    }
   },
-};
 
+  videos: {
+    post: (req, res) => {
+      console.log(req.body);
+      const {url} = req.body;
+      Video.findOrCreate({
+        where: { url: url },
+        defaults: {
+          url: url
+        }
+      })
+      .then(result => {
+      // boolean stating if it was created or not
+        const exists = result[1];
+        if (exists) {
+         console.log('url already exists');
+        }
+        res.sendStatus(201);
+      })
+        .catch(err => {
+          res.status(400).end(JSON.stringify(err));
+        }
+        );
+    }
+  }
+};
