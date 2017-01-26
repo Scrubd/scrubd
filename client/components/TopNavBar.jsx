@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Logout from './Logout.jsx';
+import SigninSignup from './SigninSignup.jsx';
 
-export default function TopNavBar() {
+export default function TopNavBar({ sessionActive }) {
   const consoling = () => {
     console.log('don\'t cry');
   };
