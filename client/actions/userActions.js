@@ -4,10 +4,12 @@ export function signupOrSignin(name) {
   return (dispatch) => {
     axios.post('/api/users', name)
       .then((response) => {
+        const payload = JSON.parse(response.config.data);
+        payload.message = response.data;
         if (response.status === 201) {
-          dispatch({ type: 'SIGNUP_FULFILLED', payload: response.data });
+          dispatch({ type: 'SIGNUP_FULFILLED', payload });
         } else {
-          dispatch({ type: 'SIGNIN_FULFILLED', payload: response.data });
+          dispatch({ type: 'SIGNIN_FULFILLED', payload });
         }
       })
       .catch((err) => {
