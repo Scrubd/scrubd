@@ -1,16 +1,14 @@
 import axios from 'axios';
+import jwt from 'jwt-simple';
 
 export function signupOrSignin(name) {
   return (dispatch) => {
     axios.post('/api/users', name)
       .then((response) => {
-        const payload = JSON.parse(response.config.data);
-        payload.message = response.data;
-        if (response.status === 201) {
-          dispatch({ type: 'SIGNUP_FULFILLED', payload });
-        } else {
-          dispatch({ type: 'SIGNIN_FULFILLED', payload });
-        }
+        const token = response.data.token;
+        window.localStorage.setItem('scrubd', token);
+        const payload = JSON.parse(response.config.data).name;
+        dispatch({ type: `SIGN${response.status === 201 ? 'UP' : 'IN'}_FULFILLED`, payload });
       })
       .catch((err) => {
         dispatch({ type: 'SIGNIN_OR_SIGNUP_FAILED', payload: err.response });
