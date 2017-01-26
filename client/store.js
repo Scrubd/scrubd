@@ -11,5 +11,9 @@ const defaultState = {
   comments: {
     comments: [],
   },
+  user: {
+    sessionActive: false,
+    name: null,
+  },
 };
 export default createStore(reducer, defaultState, middleware);
