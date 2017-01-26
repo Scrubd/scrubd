@@ -55,7 +55,6 @@ module.exports = {
   },
   users: {
     logIn: (req, res) => {
-      console.log('REQ BODY', req.body);
       const name = req.body.name;
       User.findOrCreate({ where: { name } })
         .spread((user, created) => {
@@ -70,9 +69,10 @@ module.exports = {
           res.status(500).end('Sorry, something went wrong. It\'s not you, it\'s me. Bye.');
         });
     },
-  },
-  logOut: (req, res) => {
-
+    logOut: (req, res) => {
+      req.session.destroy((err) => {
+        res.end('Session ended.');
+      });
+    },
   },
 };
-
