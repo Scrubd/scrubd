@@ -3,7 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
+//for displaying count of comments at intervals
 
+//note: should also move BarDatum and data transform logic out of component file
 
 class DynamicBarChart extends React.Component {
   constructor (props) {
