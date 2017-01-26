@@ -1,5 +1,4 @@
 import axios from 'axios';
-import jwt from 'jwt-simple';
 
 export function signupOrSignin(name) {
   return (dispatch) => {
