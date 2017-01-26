@@ -19,6 +19,7 @@ class SingleComment extends React.Component {
     var videoSource = player.element.getAttribute('src');
     var timeStamp;
     var data;
+    // var that = this;
 
     player.getCurrentTime()
       .then(((seconds) => {
