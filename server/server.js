@@ -37,3 +37,7 @@ app.get('/api/comments', controller.comments.get);
 app.post('/api/comments', controller.comments.post);
 
 app.post('/api/users', controller.users.logIn);
+app.delete('/api/users', controller.users.logOut);
+// app.delete('/api/users', (req, res) => {
+//   res.end('hey thanks for this');
+// });
