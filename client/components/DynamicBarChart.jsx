@@ -26,7 +26,7 @@ class DynamicBarChart extends React.Component {
     const dbData = this.props.comments;
     console.log(dbData);
 
-    var numInc = 20;
+    var numInc = 40;
     var videoLength = 50;
     var incrementLength = videoLength/numInc;
     var barData = [];

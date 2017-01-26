@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
+import {emojify} from 'react-emojione';
 
 class SingleComment extends React.Component {
 
@@ -39,6 +40,8 @@ class SingleComment extends React.Component {
     <div className='container'>
       <input ref="comment" placeholder="Submit comment..."/>
       <button onClick={this.commentSubmit.bind(this)}>Submit</button>
+      <span> {emojify(':thumbsup:', {output: 'unicode'})} </span>
+      <span> {emojify(':thumbsdown:', {output: 'unicode'})} </span>      
     </div>
     );
   }

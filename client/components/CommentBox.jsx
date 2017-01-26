@@ -4,10 +4,11 @@ import SingleComment from './SingleComment.jsx';
 import AllComments from './AllComments.jsx';
 
 
+
 const CommentBox = (props) => (
   <div>
     <div className="container commentBox">
-      <SingleComment />
+      <SingleComment /> 
       <AllComments comments={props.comments}/>
     </div>
   </div>
