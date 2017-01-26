@@ -11,5 +11,5 @@ const TopNavBar = ({ sessionActive, dispatch }) => (
 );
 
 export default connect((state => ({
-  user: state.user,
+  sessionActive: state.user.sessionActive,
 })))(TopNavBar);
