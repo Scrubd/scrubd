@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { fetchComments } from '../actions/commentsActions';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
+import TopNavBar from './TopNavBar.jsx';
 
 class App extends React.Component {
 
@@ -15,6 +16,7 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <h1>Scrubd</h1>
+        <TopNavBar />
         <div className="row">
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
             <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
