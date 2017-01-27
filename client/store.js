@@ -6,10 +6,14 @@ import reducer from './reducers/index';
 const middleware = applyMiddleware(logger(), thunk);
 const defaultState = {
   video: {
-    currentVideo: 'https://player.vimeo.com/video/76979871'
+    currentVideo: 'https://player.vimeo.com/video/76979871',
   },
   comments: {
-    comments: []
-  }
+    comments: [],
+  },
+  user: {
+    sessionActive: null,
+    name: null,
+  },
 };
 export default createStore(reducer, defaultState, middleware);

@@ -1,7 +1,11 @@
+import { checkAuth } from '../actions/userActions';
 import { connect } from 'react-redux';
+import { fetchComments } from '../actions/commentsActions';
+import CommentBox from './CommentBox.jsx';
+import DynamicBarChart from './DynamicBarChart.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { fetchComments } from '../actions/commentsActions';
+import TopNavBar from './TopNavBar.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
 import DynamicBarChart from './DynamicBarChart.jsx';
@@ -9,21 +13,23 @@ import InputURL from './InputURL.jsx';
 
 class App extends React.Component {
 
-  componentWillMount () {
+  componentWillMount() {
     this.props.dispatch(fetchComments(this.props.video));
+    this.props.dispatch(checkAuth());
   }
 
-  render () {
+  render() {
     return (
       <div className="container-fluid">
         <h1>Scrubd</h1>
+        <TopNavBar />
         <InputURL />
         <div className="row">
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
             <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
           </div>
           <div>
-            <DynamicBarChart comments={this.props.comments}/>
+            <DynamicBarChart comments={this.props.comments}  />
           </div>
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
             <CommentBox comments={this.props.comments} />
@@ -36,5 +42,5 @@ class App extends React.Component {
 
 export default connect(state => ({
   video: state.video.currentVideo,
-  comments: state.comments.comments
+  comments: state.comments.comments,
 }))(App);

@@ -7,7 +7,8 @@
     ],
     "rules": {
         "no-restricted-syntax": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "no-param-reassign": [0, { "props": false }]
     },
     "settings": {
         "import/resolver": {
