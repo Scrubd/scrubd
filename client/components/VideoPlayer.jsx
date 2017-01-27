@@ -10,12 +10,17 @@ class VideoPlayer extends React.Component {
   componentDidMount() {
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
+
+
     player.on('seeked', ((data) => {
       const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
-      scroller.scrollTo(anchor.toString(), {
-        duration: 300,
-        smooth: true,
-      });
+      // scroller.scrollTo(anchor.toString(), {
+      //   duration: 300,
+      //   smooth: true,
+      // });
+      var topPos = document.getElementById(anchor).offsetTop;
+      document.getElementById('commentsContainer').scrollTop = topPos - 10;
+
     }).bind(this));
   }
 

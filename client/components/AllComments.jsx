@@ -4,12 +4,12 @@ import Comment from './Comment.jsx';
 
 const divStyle = {
   overflow: 'scroll',
-  width: '200px',
-  height: '200px',
+  width: '300px',
+  height: '100px',
 }
 
 const AllComments = (props) => (
-    <div style={divStyle}>
+    <div id="commentsContainer" style={divStyle}>
       {props.comments.map( (comment, index) => {
         return <Comment key={index} comment={comment}/>
       })}
