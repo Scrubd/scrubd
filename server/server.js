@@ -30,3 +30,4 @@ app.get('/api/comments', controller.comments.get);
 app.post('/api/comments', controller.comments.post);
 
 app.post('/api/users', controller.users.logIn);
+app.get('/api/users', controller.users.checkAuth);
