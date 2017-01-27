@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fetchComments } from '../actions/commentsActions';
+import { checkAuth } from '../actions/userActions';
 import VideoPlayer from './VideoPlayer.jsx';
 import CommentBox from './CommentBox.jsx';
 import TopNavBar from './TopNavBar.jsx';
@@ -10,6 +11,7 @@ class App extends React.Component {
 
   componentWillMount() {
     this.props.dispatch(fetchComments(this.props.video));
+    this.props.dispatch(checkAuth());
   }
 
   render() {
