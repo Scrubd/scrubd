@@ -72,6 +72,7 @@ module.exports = {
          res.status(400).end(JSON.stringify(err));
        });
     },
+  },
 
   users: {
     logIn: (req, res) => {
@@ -102,5 +103,5 @@ module.exports = {
           res.status(404).json(err);
         });
     },
-  }
+  },
 };
