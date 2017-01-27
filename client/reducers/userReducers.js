@@ -16,7 +16,8 @@ export default function reducer(state, action) {
     newState.name = action.payload.name;
     break;
   case 'CHECK_AUTH_FAILED':
-  case 'LOGOUT':
+  case 'SIGNOUT':
+    window.localStorage.removeItem('scrubd');
     newState.sessionActive = false;
     newState.name = null;
     break;
