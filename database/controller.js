@@ -56,26 +56,21 @@ module.exports = {
 
   videos: {
     post: (req, res) => {
-      console.log(req.body);
-      const {url} = req.body;
+       const {url} = req.body;
       Video.findOrCreate({
-        where: { url: url },
-        defaults: {
-          url: url
-        }
-      })
-      .then(result => {
-      // boolean stating if it was created or not
-        const exists = result[1];
-        if (exists) {
-         console.log('url already exists');
-        }
-        res.sendStatus(201);
-      })
-        .catch(err => {
+        where: { url: url }
+       })
+       .spread((video, created) => {
+         if (created) {
+           res.send(video);
+         } else {
+           res.send(video);
+         }
+       })
+       .catch(err => {
           res.status(400).end(JSON.stringify(err));
         }
         );
-    }
+      }
   }
 };
