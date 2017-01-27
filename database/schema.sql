@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS scrubd;
 
 USE scrubd;
 
--- DROP TABLE IF EXISTS Users;
+-- PURE SQL SCHEMA (NO SEQUELIZE) for reference and backup purposes:
 
 -- CREATE TABLE Users (
 --   id INTEGER NOT NULL AUTO_INCREMENT,
