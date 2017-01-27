@@ -18,8 +18,13 @@ class VideoPlayer extends React.Component {
       //   duration: 300,
       //   smooth: true,
       // });
-      var topPos = document.getElementById(anchor).offsetTop;
-      document.getElementById('commentsContainer').scrollTop = topPos - 10;
+      // console.log(anchor)
+      // var topPos = document.getElementById(anchor.toString()).offsetTop;
+      // console.log("topPos: " + topPos);
+      // console.log("container scrolltop: " + document.getElementById('commentsContainer').scrollTop);
+      // document.getElementById('commentsContainer').scrollTop = topPos;
+      var element = document.getElementById(anchor.toString())
+      element.scrollIntoView();
 
     }).bind(this));
   }
