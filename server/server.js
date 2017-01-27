@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 // in case we want json encoded bodies
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // to retrieve ALL comments.
 app.get('/api/comments', controller.comments.get);
@@ -28,7 +29,5 @@ app.get('/api/comments', controller.comments.get);
 // to post a comment
 app.post('/api/comments', controller.comments.post);
 
-
-
-
-
+app.post('/api/users', controller.users.logIn);
+app.get('/api/users', controller.users.checkAuth);

@@ -13,3 +13,7 @@ dist
 # VS Code config
 
 .vscode
+
+# the very bad eslintrc file
+
+./.eslintrc.js

@@ -49,7 +49,9 @@ class DynamicBarChart extends React.Component {
     // loop through array of dbData
     for (var i = 0; i < dbData.length; i++){
       var BarDatumIndex = Math.floor(dbData[i]["time_stamp"]/incrementLength);
-      barData[BarDatumIndex]["count"] += 1;
+      if (barData[BarDatumIndex]) {
+        barData[BarDatumIndex]["count"] += 1;
+      }
       // console.log(BarDatumIndex);
     }
 
