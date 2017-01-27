@@ -21,6 +21,10 @@ export default function reducer(state, action) {
     newState.sessionActive = false;
     newState.name = null;
     break;
+  case 'NO_TOKEN':
+    newState.sessionActive = false;
+    newState.name = null;
+    break;
   // no default
   }
   return newState;
