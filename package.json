@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./server/server.js",
+    "start": "NODE_PATH=$NODE_PATH:./src node ./server/server.js",
+    "dev": "npm start & webpack -w",
     "webpack": "webpack",
     "data": "mysql.server.start && mysql -u root < ./database/schema.sql && node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
   },
