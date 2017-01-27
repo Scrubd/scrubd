@@ -15,16 +15,22 @@ export function signupOrSignin(name) {
   };
 }
 
-export function logOut() {
+export const signout = { type: 'SIGNOUT' };
+
+export function checkAuth() {
   return (dispatch) => {
-    axios.delete('/api/users')
+    axios.get('/api/users', {
+      headers: {
+        'x-access-token': window.localStorage.getItem('scrubd'),
+        'Allow-Control-Allow-Origin': '*',
+      },
+    })
       .then((response) => {
-        debugger;
-        // dispatch({ type: 'SIGNIN_OR_SIGNUP', payload: response.data });
+        dispatch({ type: 'CHECK_AUTH_FULFILLED', payload: response.data });
       })
       .catch((err) => {
-        debugger;
-        // dispatch({ type: 'FETCH_COMMENTS_FAILED', payload: err });
+        dispatch({ type: 'CHECK_AUTH_FAILED', payload: err.response });
       });
   };
 }
+
