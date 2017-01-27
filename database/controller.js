@@ -72,5 +72,16 @@ module.exports = {
           res.status(500).end('Sorry, something went wrong. It\'s not you, it\'s me. Bye.');
         });
     },
+    checkAuth: (req, res) => {
+      const token = jwt.decode(req.get('x-access-token'), 'please do not see this, kthx'); // TODO: set to env variable
+      User.findOne({ where: { name: token.name } })
+        .then((user) => {
+          console.log(user.dataValues);
+          res.json(user.dataValues);
+        })
+        .catch((err) => {
+          res.status(404).json(err);
+        });
+    },
   },
 };
