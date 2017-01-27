@@ -8,6 +8,7 @@ const User = db.define('User', {
   name: {
     type: Sequelize.CHAR(20),
     unique: true,
+    allowNull: false,
   },
 }, {
   timestamps: false,
@@ -17,6 +18,7 @@ const Video = db.define('Video', {
   url: {
     type: Sequelize.CHAR(255),
     unique: true,
+    allowNull: false,
   },
   views: {
     type: Sequelize.INTEGER,
