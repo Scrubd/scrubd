@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server/server.js",
     "webpack": "webpack",
-    "data": "node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
+    "data": "mysql.server.start && mysql -u root < ./database/schema.sql && node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
   },
   "repository": {
     "type": "git",
