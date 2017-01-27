@@ -14,3 +14,9 @@ h1 {
 .comments {
   border: 1px solid black;
 }
+
+div.scroll {
+  overflow: scroll;
+  width: 200px;
+  height: 200px;
+}
