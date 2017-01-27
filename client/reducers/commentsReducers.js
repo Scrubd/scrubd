@@ -1,6 +1,6 @@
 import store from '../store';
 
-export default function reducer(state, action) {
+export default function reducer (state, action) {
   const newState = Object.assign({}, state);
   switch (action.type) {
   case 'FETCH_COMMENTS_FULFILLED': {
@@ -16,7 +16,7 @@ export default function reducer(state, action) {
     const newComment = {
       User: { name },
       comment,
-      time_stamp,
+      time_stamp
     };
     newState.comments = newState.comments.slice();
     for (let i = 0; i < newState.comments.length; i += 1) {
@@ -34,5 +34,6 @@ export default function reducer(state, action) {
   }
   // no default
   }
-  return newState;
+  
+return newState;
 }
