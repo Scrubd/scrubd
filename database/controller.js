@@ -11,7 +11,7 @@ module.exports = {
     get: (req, res) => {
       const URL = url.parse(req.url, true).query.URL;
       Video.findOne({ where: { url: URL } })
-        .then(video => {
+        .then((video) => {
           Comment.findAll({
             where: { VideoId: video.dataValues.id },
             order: 'time_stamp ASC',
@@ -19,11 +19,11 @@ module.exports = {
             include: [
               {
                 model: User,
-                attributes: ['name']
-              }
-            ]
+                attributes: ['name'],
+              },
+            ],
           })
-            .then(results => {
+            .then((results) => {
               if (results) {
                 const comments = [];
                 for (const item of results) {
@@ -37,29 +37,29 @@ module.exports = {
     post: (req, res) => {
       const { comment, time_stamp, URL, name } = req.body;
       Comment.create({ comment, time_stamp })
-        .then(commentIntance => {
+        .then((commentIntance) => {
           Video.findOne({ where: { url: URL } })
-            .then(video => {
+            .then((video) => {
               commentIntance.setVideo(video);
               User.findOne({ where: { name } })
-                .then(user => {
+                .then((user) => {
                   commentIntance.setUser(user);
                   res.sendStatus(201);
                 });
             });
         })
-        .catch(err => {
+        .catch((err) => {
           res.status(400).end(JSON.stringify(err));
         });
-    }
+    },
   },
 
   videos: {
     post: (req, res) => {
-       const {url} = req.body;
+      const URL = req.body.url;
       Video.findOrCreate({
-        where: { url: url }
-       })
+        where: { url: URL },
+      })
        .spread((video, created) => {
          if (created) {
            res.send(video);
@@ -67,10 +67,9 @@ module.exports = {
            res.send(video);
          }
        })
-       .catch(err => {
-          res.status(400).end(JSON.stringify(err));
-        }
-        );
-      }
-  }
+       .catch((err) => {
+         res.status(400).end(JSON.stringify(err));
+       });
+    },
+  },
 };
