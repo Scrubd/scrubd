@@ -19,9 +19,11 @@ export const signout = { type: 'SIGNOUT' };
 
 export function checkAuth() {
   return (dispatch) => {
+    const token = window.localStorage.getItem('scrubd');
+    if (!token) return { type: 'NO_TOKEN' };
     axios.get('/api/users', {
       headers: {
-        'x-access-token': window.localStorage.getItem('scrubd'),
+        'x-access-token': token,
         'Allow-Control-Allow-Origin': '*',
       },
     })
