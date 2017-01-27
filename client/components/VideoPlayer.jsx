@@ -13,7 +13,7 @@ class VideoPlayer extends React.Component {
     player.on('seeked', ((data) => {
       const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
       scroller.scrollTo(anchor.toString(), {
-        duration: 750,
+        duration: 300,
         smooth: true,
       });
     }).bind(this));
