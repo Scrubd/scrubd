@@ -6,10 +6,6 @@ import { submitComment } from '../actions/commentsActions';
 
 class SingleComment extends React.Component {
 
-  constructor(props) {
-   super(props);
-  }
-
   commentSubmit () {
     event.preventDefault();
     var comment = this.refs.comment.value;
@@ -22,7 +18,7 @@ class SingleComment extends React.Component {
     // var that = this;
 
     player.getCurrentTime()
-      .then(((seconds) => {
+      .then(seconds => {
         data = {
           name: 'JOSEPH',
           comment: comment,
@@ -30,13 +26,13 @@ class SingleComment extends React.Component {
           time_stamp: seconds
         };
         this.props.dispatch(submitComment(data));
-      }).bind(this));
+      });
   }
 
 
-  render() {
+  render () {
     return (
-    <div className='container'>
+    <div className="container">
       <input ref="comment" placeholder="Submit comment..."/>
       <button onClick={this.commentSubmit.bind(this)}>Submit</button>
     </div>
