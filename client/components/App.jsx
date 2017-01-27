@@ -7,7 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TopNavBar from './TopNavBar.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
-
+import css from '../styles/main.css';
 class App extends React.Component {
 
   componentWillMount () {
