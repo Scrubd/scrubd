@@ -6,8 +6,17 @@ const Video = models.Video;
 
 module.exports = {
   get: (req, res) => {
-    console.log('HEY!!!');
-    res.end('You got a video maybe?!?!');
+    Video.findAll({ limit: 30 }).then((results) => {
+      if (results) {
+        const videos = [];
+        for (const item of results) {
+          videos.push(item.dataValues);
+        }
+        res.status(200).end(JSON.stringify(videos));
+      }
+    }).catch((err) => {
+      res.status(400).end(JSON.stringify(err));
+    });
   },
   post: (req, res) => {
     const { url, name } = req.body;
