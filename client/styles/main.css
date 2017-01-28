@@ -1,17 +1,32 @@
-h1 {
-  color: red;
-}
 
-#VideoPlayer {
-  border: 1px solid black;
+.firstRow {
+  padding: 20px;
 }
 
 #SingleComment {
   border: 1px solid green;
 }
 
-.comments {
-  border: 1px solid black;
+.navbar {
+  height: 40px;
+  padding: 10px;
+  background: gray;
+  width: 100%;
+}
+
+.videoList {
+  border: 3px solid gray;
+  border-radius: 4px;
+  height: 50vh;
+  overflow: scroll;
+}
+
+.videoEntry {
+  padding: 4px;
+  margin: 4px;
+  text-align: center;
+  background: lightblue;
+  
 }
 
 div.scroll {
@@ -19,3 +34,4 @@ div.scroll {
   width: 200px;
   height: 200px;
 }
+
