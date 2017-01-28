@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { fetchComments } from '../actions/commentsActions';
 
 export function submitURL(data) {
   return (dispatch) => {
@@ -14,7 +13,7 @@ export function submitURL(data) {
   };
 }
 
-export function getVideos() {
+export function fetchVideos() {
   return (dispatch) => {
     return axios.get('/api/videos')
       .then((response) => {
