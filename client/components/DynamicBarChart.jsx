@@ -19,12 +19,12 @@ class DynamicBarChart extends React.Component {
 
   render() {
     const dbData = this.props.comments;
-    console.log(dbData);
 
-    let numInc = 20;
-    let videoLength = 50;
-    let incrementLength = videoLength / numInc;
-    let barData = [];
+
+    const numInc = 20;
+    const videoLength = 50;
+    const incrementLength = videoLength / numInc;
+    const barData = [];
     // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
 
     class BarDatum {
@@ -37,13 +37,13 @@ class DynamicBarChart extends React.Component {
     }
     // create array of time increments
     for (var i = 0; i < numInc; i++) {
-      let barDatumCopy = new BarDatum(i * (incrementLength) + (incrementLength), (i * (incrementLength)), i * (incrementLength) + (incrementLength));
+      const barDatumCopy = new BarDatum(i * (incrementLength) + (incrementLength), (i * (incrementLength)), i * (incrementLength) + (incrementLength));
       barData.push(barDatumCopy);
     }
 
     // loop through array of dbData
     for (var i = 0; i < dbData.length; i++) {
-      let BarDatumIndex = Math.floor(dbData[i].time_stamp / incrementLength);
+      const BarDatumIndex = Math.floor(dbData[i].time_stamp / incrementLength);
       if (barData[BarDatumIndex]) {
         barData[BarDatumIndex].count += 1;
       }
@@ -56,20 +56,20 @@ class DynamicBarChart extends React.Component {
     return (
       <div>
         <BarChart
-width={500} height={150} data={barData}
+          width={500} height={150} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
-          <XAxis dataKey="timeName"  />
-          <YAxis  />
-          <CartesianGrid strokeDasharray="3 3"  />
-          <Tooltip  />
+          <XAxis dataKey="timeName" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
           <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
-          {
+            {
             data.map((entry, index) => (
               <Cell cursor="pointer" fill={index === activeIndex ? '#f47d42' : '#721111'} key={`cell-${index}`} />
             ))
           }
-        </Bar>
+          </Bar>
         </BarChart>
 
       </div>
