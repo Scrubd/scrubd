@@ -5,7 +5,6 @@ export default function reducer(state, action) {
   switch (action.type) {
     case 'SUBMIT_VIDEO_FULFILLED': {
       newState.currentVideo = action.payload.url;
-      console.log('video successfully submitted');
       break;
     }
     case 'SUBMIT_VIDEO_FAILED': {
@@ -19,6 +18,9 @@ export default function reducer(state, action) {
     case 'FETCH_VIDEOS_FAILED': {
       console.log('Could not fetch videos');
       break;
+    }
+    case 'CLICK_VIDEO': {
+      newState.currentVideo = action.payload.url;
     }
   // no default
   }
