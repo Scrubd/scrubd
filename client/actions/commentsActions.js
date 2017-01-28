@@ -16,12 +16,12 @@ export function fetchComments(url) {
 
 export function submitComment(data) {
   return (dispatch) => {
-    axios.post('/api/comments', data)
+  axios.post('/api/comments', data)
     .then((response) => {
       dispatch({ type: 'SUBMIT_COMMENT_FULFILLED', payload: JSON.parse(response.config.data) });
     })
     .catch((err) => {
       dispatch({ type: 'SUBMIT_COMMENT_FAILED', payload: err });
     });
-  };
+};
 }

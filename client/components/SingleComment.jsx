@@ -6,40 +6,34 @@ import { submitComment } from '../actions/commentsActions';
 
 class SingleComment extends React.Component {
 
-  constructor(props) {
-   super(props);
-  }
-
-  commentSubmit () {
+  commentSubmit() {
     event.preventDefault();
-    var comment = this.refs.comment.value;
+    const comment = this.refs.comment.value;
     this.refs.comment.value = '';
-    var iframe = document.querySelector('iframe');
-    var player = new Player(iframe);
-    var videoSource = player.element.getAttribute('src');
-    var timeStamp;
-    var data;
-    // var that = this;
+    const iframe = document.querySelector('iframe');
+    const player = new Player(iframe);
+    const videoSource = player.element.getAttribute('src');
 
     player.getCurrentTime()
-      .then(((seconds) => {
-        data = {
-          name: 'JOSEPH',
-          comment: comment,
+      .then((seconds) => {
+        return {
+          name: this.props.name,
+          comment,
           URL: videoSource,
-          time_stamp: seconds
+          time_stamp: seconds,
         };
+      })
+      .then((data) => {
         this.props.dispatch(submitComment(data));
-      }).bind(this));
+      });
   }
-
 
   render() {
     return (
-    <div className='container'>
-      <input ref="comment" placeholder="Submit comment..."/>
-      <button onClick={this.commentSubmit.bind(this)}>Submit</button>
-    </div>
+      <div className="container">
+        <input ref="comment" placeholder="Submit comment..." />
+        <button onClick={this.commentSubmit.bind(this)}>Submit</button>
+      </div>
     );
   }
 }
