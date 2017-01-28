@@ -22,7 +22,7 @@ export default function reducer(state, action) {
     for (let i = 0; i < newState.comments.length; i += 1) {
       if (newState.comments[i].time_stamp > newComment.time_stamp) {
         newState.comments.splice(i, 0, newComment);
-        break;
+        return newState;
       }
     }
     newState.comments.push(newComment);
