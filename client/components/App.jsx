@@ -1,10 +1,11 @@
-import { checkAuth } from '../actions/userActions';
 import { connect } from 'react-redux';
-import { fetchComments } from '../actions/commentsActions';
-import CommentBox from './CommentBox.jsx';
-import DynamicBarChart from './DynamicBarChart.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { checkAuth } from '../actions/userActions';
+import { fetchComments } from '../actions/commentsActions';
+import { fetchVideos } from '../actions/videoActions';
+import CommentBox from './CommentBox.jsx';
+import DynamicBarChart from './DynamicBarChart.jsx';
 import TopNavBar from './TopNavBar.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
 import css from '../styles/main.css';
@@ -15,6 +16,7 @@ class App extends React.Component {
   componentWillMount() {
     this.props.dispatch(fetchComments(this.props.video));
     this.props.dispatch(checkAuth());
+    this.props.dispatch(fetchVideos());
   }
 
   render() {
