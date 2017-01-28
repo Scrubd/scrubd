@@ -58,19 +58,23 @@ module.exports = {
   videos: {
     post: (req, res) => {
       const URL = req.body.url;
+      const name = req.body.name;
       Video.findOrCreate({
         where: { url: URL },
-      })
-       .spread((video, created) => {
-         if (created) {
-           res.send(video);
-         } else {
-           res.send(video);
-         }
-       })
-       .catch((err) => {
-         res.status(400).end(JSON.stringify(err));
-       });
+      }).spread((video, created) => {
+        if (created) {
+          console.log('I HAVE BEEN CREATED');
+          User.findOne({ where: { name } }).then((user) => {
+            video.setUser(user);
+            console.log('FOREIGN KEY SET');
+            res.status(201).send(video);
+          });
+        } else {
+          res.send(video);
+        }
+      }).catch((err) => {
+        res.status(400).end(JSON.stringify(err));
+      });
     },
   },
 
