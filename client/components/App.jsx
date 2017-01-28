@@ -8,8 +8,10 @@ import CommentBox from './CommentBox.jsx';
 import DynamicBarChart from './DynamicBarChart.jsx';
 import TopNavBar from './TopNavBar.jsx';
 import VideoPlayer from './VideoPlayer.jsx';
-import css from '../styles/main.css';
 import InputURL from './InputURL.jsx';
+import VideoList from './VideoList.jsx';
+
+import css from '../styles/main.css';
 
 class App extends React.Component {
 
@@ -30,6 +32,9 @@ class App extends React.Component {
             <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
           </div>
           <div>
+            <VideoList videos={this.props.videos} />
+          </div>
+          <div>
             <DynamicBarChart comments={this.props.comments} />
           </div>
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
@@ -43,6 +48,7 @@ class App extends React.Component {
 
 export default connect(state => ({
   video: state.video.currentVideo,
+  videos: state.video.videos,
   comments: state.comments.comments,
   name: state.user.name,
 }))(App);
