@@ -13,7 +13,3 @@ export function submitURL(data) {
     });
   };
 }
-
-      // return fetchComments(response.data.url).then((result) => {
-      //   console.log(result);
-      // });
