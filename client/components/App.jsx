@@ -1,3 +1,5 @@
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap';
 import { checkAuth } from '../actions/userActions';
 import { connect } from 'react-redux';
 import { fetchComments } from '../actions/commentsActions';
