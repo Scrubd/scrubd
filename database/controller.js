@@ -54,6 +54,26 @@ module.exports = {
         });
     },
   },
+
+  videos: {
+    post: (req, res) => {
+      const URL = req.body.url;
+      Video.findOrCreate({
+        where: { url: URL },
+      })
+       .spread((video, created) => {
+         if (created) {
+           res.send(video);
+         } else {
+           res.send(video);
+         }
+       })
+       .catch((err) => {
+         res.status(400).end(JSON.stringify(err));
+       });
+    },
+  },
+
   users: {
     logIn: (req, res) => {
       const name = req.body.name;
