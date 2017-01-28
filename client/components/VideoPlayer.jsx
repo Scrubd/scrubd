@@ -7,7 +7,18 @@ const scroller = Scroll.scroller;
 
 class VideoPlayer extends React.Component {
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   const iframe = document.querySelector('iframe');
+  //   const player = new Player(iframe);
+  //   const callback = function (data) {
+  //     const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
+  //     const element = document.getElementById(anchor.toString());
+  //     element.scrollIntoView();
+  //   }.bind(this);
+  //   player.on('seeked', callback);
+  // }
+
+  componentDidUpdate() {
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
     const callback = function (data) {
