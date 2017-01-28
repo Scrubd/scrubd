@@ -4,11 +4,11 @@ import SingleComment from './SingleComment.jsx';
 import AllComments from './AllComments.jsx';
 
 
-const CommentBox = props => (
+const CommentBox = ({comments, name}) => (
   <div>
     <div className="container commentBox">
-      <SingleComment />
-      <AllComments comments={props.comments} />
+      { name ? <SingleComment name={name} /> : null }
+      <AllComments comments={comments} />
     </div>
   </div>
 );
