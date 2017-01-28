@@ -35,13 +35,13 @@ describe('Scrubd', () => {
     });
 
     it('should successfully save a new video', (done) => {
-      axios.post('http://127.0.0.1:3000/api/videos', video)
+      axios.post('http://127.0.0.1:3000/api/videos', { name: name.name, url: video.url })
         .then((response) => {
-          expect(JSON.parse(response.config.data).URL).to.equal(video);
+          expect(JSON.parse(response.config.data).url).to.equal(video.url);
           done();
         })
         .catch((err) => {
-          done('Your test failed:', err);
+          done(err);
         });
     });
 
