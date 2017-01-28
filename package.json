@@ -24,6 +24,7 @@
     "@vimeo/player": "^2.0.1",
     "axios": "^0.15.3",
     "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "install": "^0.8.4",
     "jwt-simple": "^0.5.1",
