@@ -9,7 +9,7 @@ export default function reducer(state, action) {
       break;
     }
     case 'SUBMIT_VIDEO_FAILED': {
-      console.log('Comments fetch failed.');
+      console.log('Submit video failed.');
       break;
     }
   // no default
