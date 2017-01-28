@@ -5,6 +5,10 @@ const User = models.User;
 const Video = models.Video;
 
 module.exports = {
+  get: (req, res) => {
+    console.log('HEY!!!');
+    res.end('You got a video maybe?!?!');
+  },
   post: (req, res) => {
     const { url, name } = req.body;
     Video.findOrCreate({
