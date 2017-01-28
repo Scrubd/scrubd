@@ -4,7 +4,7 @@
   "description": "Hack Reactor greenfield project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./spec",
     "start": "NODE_PATH=$NODE_PATH:./src node ./server/server.js",
     "dev": "npm start & webpack -w",
     "webpack": "webpack",
@@ -48,6 +48,7 @@
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.16.0",
     "babel-watch": "^2.0.5",
+    "chai": "^3.5.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
@@ -55,6 +56,7 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "html-webpack-plugin": "^2.26.0",
+    "mocha": "^3.2.0",
     "morgan": "^1.7.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0"
