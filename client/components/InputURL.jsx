@@ -15,11 +15,13 @@ class InputURL extends React.Component {
     if (validUrl.isUri(url) && url.includes('vimeo')) {
       const final = url.substr(url.lastIndexOf('/') + 1);
       url = `https://player.vimeo.com/video/${final}`;
-      const data = { url };
-      this.props.dispatch(submitURL(data));
-      this.props.dispatch(fetchComments(data.url));
+      const data = { url, name: this.props.name };
+      this.props.dispatch(submitURL(data))
+        .then((video) => {
+          this.props.dispatch(fetchComments(data.url));
+        });
     } else {
-      alert('PLEASE ENTER A VALID VIMEO URL');
+      alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }
   }
 
