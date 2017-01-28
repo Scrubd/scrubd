@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fetchComments } from '../actions/commentsActions';
 
 export function submitURL(data) {
   return (dispatch) => {
@@ -11,3 +12,7 @@ export function submitURL(data) {
     });
   };
 }
+
+      // return fetchComments(response.data.url).then((result) => {
+      //   console.log(result);
+      // });
