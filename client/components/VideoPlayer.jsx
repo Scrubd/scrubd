@@ -10,14 +10,12 @@ class VideoPlayer extends React.Component {
   componentDidMount() {
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
-
-
-    player.on('seeked', ((data) => {
+    const callback = function (data) {
       const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
-      var element = document.getElementById(anchor.toString())
+      const element = document.getElementById(anchor.toString());
       element.scrollIntoView();
-
-    }).bind(this));
+    }.bind(this);
+    player.on('seeked', callback);
   }
 
   render() {
