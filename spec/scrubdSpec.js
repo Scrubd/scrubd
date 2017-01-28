@@ -1,8 +1,8 @@
 const expect = require('chai').expect;
 const axios = require('axios');
 
-describe('Scrubd', function() {
-  describe('Server', function() {
+describe('Scrubd', () => {
+  describe('Server', () => {
     const name = { name: 'Rick Astley' };
     const video = { url: 'https://player.vimeo.com/video/76979871' };
     const comment = {
@@ -12,7 +12,7 @@ describe('Scrubd', function() {
       time_stamp: 20,
     };
 
-    it('should successfully return a GET request', function(done) {
+    it('should successfully return a GET request', (done) => {
       axios.get('http://127.0.0.1:3000/')
         .then((response) => {
           expect(response.status).to.equal(200);
@@ -23,7 +23,7 @@ describe('Scrubd', function() {
         });
     });
 
-    it('should successfully save a new user', function(done) {
+    it('should successfully save a new user', (done) => {
       axios.post('http://127.0.0.1:3000/api/users', name)
         .then((response) => {
           expect(JSON.parse(response.config.data).name).to.equal(name.name);
@@ -34,7 +34,7 @@ describe('Scrubd', function() {
         });
     });
 
-    it('should successfully save a new video', function(done) {
+    it('should successfully save a new video', (done) => {
       axios.post('http://127.0.0.1:3000/api/videos', video)
         .then((response) => {
           expect(JSON.parse(response.config.data).URL).to.equal(video);
@@ -45,7 +45,7 @@ describe('Scrubd', function() {
         });
     });
 
-    it('should successfully save a new message', function(done) {
+    it('should successfully save a new message', (done) => {
       axios.post('http://127.0.0.1:3000/api/users', comment)
         .then((response) => {
           expect(JSON.parse(response.config.data)).to.eql(comment);
