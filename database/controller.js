@@ -60,7 +60,6 @@ module.exports = {
       User.findOrCreate({ where: { name } })
         .spread((user, created) => {
           const token = jwt.encode(user.dataValues, 'please do not see this, kthx'); // TODO: set to env variable
-          console.log('what is happening?', token, typeof token);
           if (created) {
             res.status(201).end(token);
           } else {
@@ -68,7 +67,6 @@ module.exports = {
           }
         })
         .catch((err) => {
-          console.log('anything here?');
           res.status(500).end('Sorry, something went wrong. It\'s not you, it\'s me. Bye.');
         });
     },
@@ -76,7 +74,6 @@ module.exports = {
       const token = jwt.decode(req.get('x-access-token'), 'please do not see this, kthx'); // TODO: set to env variable
       User.findOne({ where: { name: token.name } })
         .then((user) => {
-          console.log(user.dataValues);
           res.json(user.dataValues);
         })
         .catch((err) => {
