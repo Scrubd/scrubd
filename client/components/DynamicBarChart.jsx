@@ -23,11 +23,10 @@ class DynamicBarChart extends React.Component {
   render() {
     const dbData = this.props.comments;
 
-    var numInc = 40;
-    var videoLength = 50;
-    var incrementLength = videoLength/numInc;
-    var barData = [];
-
+    const numInc = 20;
+    const videoLength = 50;
+    const incrementLength = videoLength / numInc;
+    const barData = [];
     // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
 
     class BarDatum {
@@ -57,6 +56,7 @@ class DynamicBarChart extends React.Component {
 
     return (
       <div>
+
         <BarChart
           width={500} height={150} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
