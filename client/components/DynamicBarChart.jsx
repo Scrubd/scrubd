@@ -2,6 +2,9 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } fro
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//for displaying count of comments at intervals
+
+//note: should also move BarDatum and data transform logic out of component file
 
 class DynamicBarChart extends React.Component {
   constructor(props) {
@@ -20,11 +23,11 @@ class DynamicBarChart extends React.Component {
   render() {
     const dbData = this.props.comments;
 
+    var numInc = 40;
+    var videoLength = 50;
+    var incrementLength = videoLength/numInc;
+    var barData = [];
 
-    const numInc = 20;
-    const videoLength = 50;
-    const incrementLength = videoLength / numInc;
-    const barData = [];
     // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
 
     class BarDatum {
@@ -47,7 +50,6 @@ class DynamicBarChart extends React.Component {
       if (barData[BarDatumIndex]) {
         barData[BarDatumIndex].count += 1;
       }
-      // console.log(BarDatumIndex);
     }
 
     const { activeIndex, data } = this.state;
@@ -78,8 +80,3 @@ class DynamicBarChart extends React.Component {
 }
 
 export default DynamicBarChart;
-
-// ReactDOM.render(
-//   <SimpleBarChart />,
-//   document.getElementById('container')
-// );
