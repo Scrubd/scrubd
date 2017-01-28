@@ -23,6 +23,8 @@ class VideoPlayer extends React.Component {
       // console.log("topPos: " + topPos);
       // console.log("container scrolltop: " + document.getElementById('commentsContainer').scrollTop);
       // document.getElementById('commentsContainer').scrollTop = topPos;
+      // var commentsContainer = document.getElementById('commentsContainer')
+      // commentsContainer.scrollTo(anchor);     
       var element = document.getElementById(anchor.toString())
       element.scrollIntoView();
 
