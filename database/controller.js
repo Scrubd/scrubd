@@ -54,13 +54,34 @@ module.exports = {
         });
     },
   },
+
+  videos: {
+    post: (req, res) => {
+      const URL = req.body.url;
+      const name = req.body.name;
+      Video.findOrCreate({
+        where: { url: URL },
+      }).spread((video, created) => {
+        if (created) {
+          User.findOne({ where: { name } }).then((user) => {
+            video.setUser(user);
+            res.status(201).send(video);
+          });
+        } else {
+          res.send(video);
+        }
+      }).catch((err) => {
+        res.status(400).end(JSON.stringify(err));
+      });
+    },
+  },
+
   users: {
     logIn: (req, res) => {
       const name = req.body.name;
       User.findOrCreate({ where: { name } })
         .spread((user, created) => {
           const token = jwt.encode(user.dataValues, 'please do not see this, kthx'); // TODO: set to env variable
-          console.log('what is happening?', token, typeof token);
           if (created) {
             res.status(201).end(token);
           } else {
@@ -68,7 +89,6 @@ module.exports = {
           }
         })
         .catch((err) => {
-          console.log('anything here?');
           res.status(500).end('Sorry, something went wrong. It\'s not you, it\'s me. Bye.');
         });
     },
@@ -76,7 +96,6 @@ module.exports = {
       const token = jwt.decode(req.get('x-access-token'), 'please do not see this, kthx'); // TODO: set to env variable
       User.findOne({ where: { name: token.name } })
         .then((user) => {
-          console.log(user.dataValues);
           res.json(user.dataValues);
         })
         .catch((err) => {
