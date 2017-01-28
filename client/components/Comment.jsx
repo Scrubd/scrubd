@@ -6,13 +6,12 @@ import {emojify} from 'react-emojione';
 
 // const Element = Scroll.Element;
 
-const Comment = ({ comment }) => (
+const Comment = ({ comment }) =>
   <div>
     <div id={comment.time_stamp.toString()}></div>
     <span>{comment.User.name}@{comment.time_stamp}</span><br />
     <span>{emojify(`${comment.comment}`, {output: 'unicode'})}</span>
   </div>
-  );
-
+  ;
 
 export default Comment;
