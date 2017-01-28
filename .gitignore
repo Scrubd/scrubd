@@ -17,3 +17,6 @@ dist
 # the very bad eslintrc file
 
 ./.eslintrc.js
+
+# DS_Store
+.DS_Store
