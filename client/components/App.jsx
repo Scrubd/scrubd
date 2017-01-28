@@ -31,7 +31,7 @@ class App extends React.Component {
             <DynamicBarChart comments={this.props.comments} />
           </div>
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
-            <CommentBox comments={this.props.comments} />
+            <CommentBox comments={this.props.comments} name={this.props.name} />
           </div>
         </div>
       </div>
