@@ -69,7 +69,7 @@ class DynamicBarChart extends React.Component {
         <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
           {
             data.map((entry, index) => (
-              <Cell cursor="pointer" fill={index === activeIndex ? '#f47d42' : '#721111' } key={`cell-${index}`} />
+              <Cell cursor="pointer" fill={index === activeIndex ? '#f47d42' : '#e5831b' } key={`cell-${index}`} />
             ))
           }
         </Bar>
