@@ -24,3 +24,10 @@ export function fetchVideos() {
       });
   };
 }
+
+export function clickVideo(video) {
+  return (dispatch) => {
+    dispatch({ type: 'CLICK_VIDEO', payload: video });
+    return video;
+  };
+}
