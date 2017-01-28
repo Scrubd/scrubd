@@ -63,10 +63,8 @@ module.exports = {
         where: { url: URL },
       }).spread((video, created) => {
         if (created) {
-          console.log('I HAVE BEEN CREATED');
           User.findOne({ where: { name } }).then((user) => {
             video.setUser(user);
-            console.log('FOREIGN KEY SET');
             res.status(201).send(video);
           });
         } else {
