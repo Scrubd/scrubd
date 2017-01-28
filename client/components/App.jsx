@@ -22,7 +22,7 @@ class App extends React.Component {
       <div className="container-fluid">
         <h1>Scrubd</h1>
         <TopNavBar />
-        <InputURL />
+        { this.props.name ? <InputURL name={this.props.name} /> : null }
         <div className="row">
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
             <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
@@ -42,4 +42,5 @@ class App extends React.Component {
 export default connect(state => ({
   video: state.video.currentVideo,
   comments: state.comments.comments,
+  name: state.user.name,
 }))(App);
