@@ -9,13 +9,18 @@ import AllComments from './AllComments.jsx';
 //   height: '200',
 // }
 
-const CommentBox = (props) => (
+const CommentBox = ({comments, name}) => (
   <div>
     <div className="container commentBox">
+<<<<<<< HEAD
       <SingleComment /> 
       <AllComments comments={props.comments}/>
+=======
+      { name ? <SingleComment name={name} /> : null }
+      <AllComments comments={comments} />
+>>>>>>> eef837c0a2f4e3eee7e8432be693879bca9095e3
     </div>
   </div>
-  );
+);
 
 export default CommentBox;

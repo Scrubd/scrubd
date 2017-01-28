@@ -3,14 +3,18 @@ const morgan = require('morgan');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const controller = require('../database/controller');
+const comments = require('../database/controllers/commentsController');
+const videos = require('../database/controllers/videosController');
+const users = require('../database/controllers/usersController');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 
 app.listen(port, (err) => {
-  if (err) console.log('err connecting');
+  if (err) {
+    console.log('err connecting');
+  }
   console.log(`listening on ${port}`);
 });
 
@@ -24,10 +28,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // to retrieve ALL comments.
-app.get('/api/comments', controller.comments.get);
+app.get('/api/comments', comments.get);
 
 // to post a comment
-app.post('/api/comments', controller.comments.post);
+app.post('/api/comments', comments.post);
 
-app.post('/api/users', controller.users.logIn);
-app.get('/api/users', controller.users.checkAuth);
+// to post a video URL
+app.post('/api/videos', videos.post);
+
+app.post('/api/users', users.logIn);
+app.get('/api/users', users.checkAuth);
