@@ -62,7 +62,7 @@ class SingleComment extends React.Component {
     player.getCurrentTime()
       .then(((seconds) => {
         data = {
-          name: 'JOSEPH',
+          name: 'JOSEPH', // TODO: make this dynamic + various refactorizations / cleanup
           comment: ":thumbsdown:",
           URL: videoSource,
           time_stamp: seconds
@@ -81,7 +81,10 @@ class SingleComment extends React.Component {
       <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', {output: 'unicode'})} </span>
       <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', {output: 'unicode'})} </span>      
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 78ea43eae2f5d02dbbad8aed5dc971422b0dbced
     );
   }
 }
