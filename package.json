@@ -52,10 +52,7 @@
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.16.0",
     "babel-watch": "^2.0.5",
-<<<<<<< HEAD
-=======
     "chai": "^3.5.0",
->>>>>>> eef837c0a2f4e3eee7e8432be693879bca9095e3
     "css-loader": "^0.26.1",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
