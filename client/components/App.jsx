@@ -31,23 +31,34 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <h1>Scrubd</h1>
-        <TopNavBar />
-        { this.props.name ? <InputURL name={this.props.name} /> : null }
-        <div className="row">
-          <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
+        <div className="navbar">
+          <TopNavBar />
+          { this.props.name ? <InputURL name={this.props.name} /> : null }
+        </div>
+
+        <div className="row firstRow">
+          <div className="col-lg-6 col-lg-offset-1 videoPLayer">
             <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
           </div>
-          <div>
-            <VideoList videos={this.props.videos} />
+          <div className="col-lg-4 col-lg-offset-1">
+            <div className="videoList">
+              <VideoList videos={this.props.videos} />
+            </div>
           </div>
-          <div>
+        </div>
+
+        <div className="row secondRow">
+          <div className="col-lg-6 col-lg-offset-1 barChart">
             <DynamicBarChart comments={this.props.comments} />
           </div>
-          <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
+        </div>
+
+        <div className="row thirdRow">
+          <div className="col-lg-7 col-lg-offset-1 comments">
             <CommentBox comments={this.props.comments} name={this.props.name} />
           </div>
         </div>
+
       </div>
     );
   }

@@ -57,7 +57,7 @@ class DynamicBarChart extends React.Component {
       <div>
 
         <BarChart
-          width={500} height={150} data={barData}
+          width={600} height={80} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="timeName" />

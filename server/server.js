@@ -35,7 +35,8 @@ app.post('/api/comments', comments.post);
 
 // to post a video URL
 app.post('/api/videos', videos.post);
+// to get  a video URL + comments
 app.get('/api/videos', videos.get);
-
+  // add a new user
 app.post('/api/users', users.logIn);
 app.get('/api/users', users.checkAuth);

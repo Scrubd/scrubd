@@ -5,7 +5,8 @@ import SigninSignup from './SigninSignup.jsx';
 
 const TopNavBar = ({ sessionActive, dispatch }) => (
   <nav>
-    { sessionActive ? (<Logout dispatch={dispatch} />) : (<SigninSignup dispatch={dispatch} />) }
+    <h3>Scrubd</h3>
+    { sessionActive ? (<Logout className="pull-right logout" dispatch={dispatch} />) : (<SigninSignup dispatch={dispatch} />) }
   </nav>
 );
 
