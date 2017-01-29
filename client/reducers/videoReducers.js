@@ -22,6 +22,14 @@ export default function reducer(state, action) {
     case 'CLICK_VIDEO': {
       newState.currentVideo = action.payload.url;
     }
+    case 'FETCH_DURATION_FULFILLED': {
+      newState.duration = action.payload;
+      break;
+    }
+    case 'FETCH_DURATION_FAILED': {
+      console.log('Fetch time duration failed.');
+      break;
+    }
   // no default
   }
 
