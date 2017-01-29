@@ -16,7 +16,6 @@ class SingleComment extends React.Component {
     this.refs.comment.value = '';
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
 
     player.getCurrentTime()
       .then(seconds => ({
@@ -34,7 +33,6 @@ class SingleComment extends React.Component {
     event.preventDefault();
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
     let data;
 
     player.getCurrentTime()
@@ -53,7 +51,6 @@ class SingleComment extends React.Component {
     event.preventDefault();
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
     let data;
 
     player.getCurrentTime()
