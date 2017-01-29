@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function submitURL(data) {
-  return (dispatch) => axios.post('/api/videos', data)
+  return dispatch => axios.post('/api/videos', data)
       .then((response) => {
         dispatch({ type: 'SUBMIT_VIDEO_FULFILLED', payload: response.data });
         return response.data;
@@ -12,7 +12,7 @@ export function submitURL(data) {
 }
 
 export function fetchVideos() {
-  return (dispatch) => axios.get('/api/videos')
+  return dispatch => axios.get('/api/videos')
       .then((response) => {
         dispatch({ type: 'FETCH_VIDEOS_FULFILLED', payload: response.data });
       })
