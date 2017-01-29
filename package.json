@@ -4,10 +4,10 @@
   "description": "Hack Reactor greenfield project",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack",
+    "start": "node server/server.js",
     "test": "mocha ./spec",
     "dev": "NODE_PATH=$NODE_PATH:./src node ./server/server.js & webpack -w",
-    "start": "webpack && node ./server/server.js",
-    "webpack": "webpack",
     "data": "mysql.server.start && mysql -u root < ./database/schema.sql && node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
   },
   "repository": {
