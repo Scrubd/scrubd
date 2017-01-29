@@ -75,10 +75,12 @@ class SingleComment extends React.Component {
   render() {
     return (
       <div className="container">
-        <input ref="comment" placeholder="Submit comment..." required />
-        <button onClick={this.commentSubmit.bind(this)}>Submit</button>
-        <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', { output: 'unicode' })} </span>
-        <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', { output: 'unicode' })} </span>
+        <form action="#">
+          <input ref="comment" placeholder="Submit comment..." required maxLength="255" />
+          <button onClick={this.commentSubmit.bind(this)}>Submit</button>
+          <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', { output: 'unicode' })} </span>
+          <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', { output: 'unicode' })} </span>
+        </form>
       </div>
     );
   }
