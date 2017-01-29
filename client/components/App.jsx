@@ -47,7 +47,7 @@ class App extends React.Component {
         </div>
 
         <div className="row thirdRow">
-          <div className="col-lg-6 col-lg-offset-1 comments">
+          <div className="col-lg-7 col-lg-offset-1 comments">
             <CommentBox comments={this.props.comments} name={this.props.name} />
           </div>
         </div>
