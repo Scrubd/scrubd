@@ -3,6 +3,7 @@ import React from 'react';
 import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
+import { makePlayer } from '../componentHelpers';
 
 class SingleComment extends React.Component {
 
@@ -14,8 +15,7 @@ class SingleComment extends React.Component {
     }
     const comment = this.refs.comment.value;
     this.refs.comment.value = '';
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
+    const player = makePlayer();
 
     player.getCurrentTime()
       .then(seconds => ({
@@ -31,8 +31,7 @@ class SingleComment extends React.Component {
 
   thumbsUpSubmit() {
     event.preventDefault();
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
+    const player = makePlayer();
     let data;
 
     player.getCurrentTime()
@@ -49,8 +48,7 @@ class SingleComment extends React.Component {
 
   thumbsDownSubmit() {
     event.preventDefault();
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
+    const player = makePlayer();
     let data;
 
     player.getCurrentTime()
