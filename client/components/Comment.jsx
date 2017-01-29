@@ -1,17 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Scroll from 'react-scroll';
-import {emojify} from 'react-emojione';
-
-
-// const Element = Scroll.Element;
+import { emojify } from 'react-emojione';
 
 const Comment = ({ comment }) =>
-  <div>
-    <div id={comment.time_stamp.toString()}></div>
-    <span>{comment.User.name}@{comment.time_stamp}</span><br />
-    <span>{emojify(`${comment.comment}`, {output: 'unicode'})}</span>
+  <div className="oneComment">
+    <ul>
+      <li className="userName">{comment.User.name} at {comment.time_stamp} seconds</li>
+      <li className="message">{emojify(`${comment.comment}`, { output: 'unicode' })}</li>
+      <li id={comment.time_stamp.toString()} />
+    </ul>
   </div>
   ;
-
 export default Comment;
