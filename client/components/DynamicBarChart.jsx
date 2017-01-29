@@ -11,34 +11,11 @@ class DynamicBarChart extends React.Component {
     super(props);
     this.state = {
       data: this.props.comments,
-      duration: null,
       activeIndex: 0,
     };
   }
 
-  componentDidMount() {
-    var _this = this;
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
 
-    console.log("video duration ================");
-    // console.log(player.getDuration());
-    player.getDuration()
-      .then(function(result) {
-        _this.setState(
-          {duration: result}
-        )
-        console.log(_this.state);
-      _this.forceUpdate();
-      })
-
-  }
-
-  componentDidUpdate() {
-
-
-
-  }
   handleClick(data, index) {
     this.setState({
       activeIndex: index,
@@ -48,7 +25,7 @@ class DynamicBarChart extends React.Component {
   render() {
     const dbData = this.props.comments;
     const numInc = 20;
-    var videoLength = this.state.duration;
+    var videoLength = this.props.duration;
     var incrementLength = videoLength / numInc;
     const barData = [];
     // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
@@ -76,7 +53,7 @@ class DynamicBarChart extends React.Component {
     }
 
     const { activeIndex, data } = this.state;
-    const activeItem = data[activeIndex];
+    const activeItem = dbData[activeIndex];
 
     return (
       <div>

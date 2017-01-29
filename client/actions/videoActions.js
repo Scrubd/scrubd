@@ -38,6 +38,7 @@ export function fetchTime() {
     return player.getDuration()
       .then((response) => {
         dispatch({ type: 'FETCH_DURATION_FULFILLED', payload: response });
+        console.log("VIDEO DURATION IS: ========>   " + response)
         return response;
       })
       .catch((err) => {
