@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { signupOrSignin } from '../actions/userActions';
 
 export default function SigninSignup({ dispatch }) {

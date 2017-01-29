@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Player from '@vimeo/player';
 import { emojify } from 'react-emojione';
+import React from 'react';
+import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
 
@@ -9,6 +8,10 @@ class SingleComment extends React.Component {
 
   commentSubmit() {
     event.preventDefault();
+    if (this.refs.comment.value === '') {
+      alert('yo give us a comment');
+      return;
+    }
     const comment = this.refs.comment.value;
     this.refs.comment.value = '';
     const iframe = document.querySelector('iframe');
@@ -29,12 +32,11 @@ class SingleComment extends React.Component {
       });
   }
 
-  thumbsUpSubmit () {
+  thumbsUpSubmit() {
     event.preventDefault();
     var iframe = document.querySelector('iframe');
     var player = new Player(iframe);
     var videoSource = player.element.getAttribute('src');
-    var timeStamp;
     var data;
 
     player.getCurrentTime()
@@ -49,12 +51,11 @@ class SingleComment extends React.Component {
       }).bind(this));
   }
 
-  thumbsDownSubmit () {
+  thumbsDownSubmit() {
     event.preventDefault();
     var iframe = document.querySelector('iframe');
     var player = new Player(iframe);
     var videoSource = player.element.getAttribute('src');
-    var timeStamp;
     var data;
 
     player.getCurrentTime()
@@ -69,10 +70,12 @@ class SingleComment extends React.Component {
       }).bind(this));
   }
 
+
+
   render() {
     return (
       <div className="container">
-        <input ref="comment" placeholder="Submit comment..." />
+        <input ref="comment" placeholder="Submit comment..." required />
         <button onClick={this.commentSubmit.bind(this)}>Submit</button>
         <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', { output: 'unicode' })} </span>
         <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', { output: 'unicode' })} </span>

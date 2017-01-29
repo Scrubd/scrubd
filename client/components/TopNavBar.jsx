@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Logout from './Logout.jsx';
 import SigninSignup from './SigninSignup.jsx';
 

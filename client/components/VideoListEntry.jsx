@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { clickVideo } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
+import { loadVideo } from '../componentHelpers';
 
 const VideoListEntry = ({ video, dispatch }) => (
   <div>
@@ -11,6 +12,7 @@ const VideoListEntry = ({ video, dispatch }) => (
         e.preventDefault();
         dispatch(clickVideo(video));
         dispatch(fetchComments(video.url));
+        loadVideo(video.url);
       }}
     >{video.url}</a>
   </div>
