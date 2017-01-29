@@ -6,19 +6,15 @@ import { findNearestTimeStamp } from '../componentHelpers';
 
 class VideoPlayer extends React.Component {
 
-  componentDidMount() {
+  componentDidUpdate() {
     const iframe = document.querySelector('iframe');
     const player = new Player(iframe);
-
-
-    player.on('seeked', ((data) => {
+    const callback = function (data) {
       const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
-      var element = document.getElementById(anchor.toString())
-      console.log(element);
+      const element = document.getElementById(anchor.toString());
       element.scrollIntoView();
-
-    }).bind(this));
-
+    }.bind(this);
+    player.on('seeked', callback);
   }
 
   render() {
@@ -26,7 +22,7 @@ class VideoPlayer extends React.Component {
 
     return (
       <div>
-        <iframe src={this.props.currentVideo} width="640" height="360" frameBorder="0" allowFullScreen />
+        <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameBorder="0" allowFullScreen />
       </div>
     );
   }

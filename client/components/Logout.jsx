@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { signout } from '../actions/userActions';
 
 export default function Logout({ dispatch }) {
