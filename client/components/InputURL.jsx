@@ -9,11 +9,6 @@ const validUrl = require('valid-url');
 class InputURL extends React.Component {
 
   videoSubmit() {
-//test location
-    // var _this = this;
-    // const iframe = document.querySelector('iframe');
-    // const player = new Player(iframe);
-//test
 
     let url = this.refs.url.value;
     this.refs.url.value = '';
@@ -26,8 +21,8 @@ class InputURL extends React.Component {
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
         })
-      loadVideo(url);
-      this.props.dispatch(fetchTime());
+      loadVideo(url)
+        .then(this.props.dispatch(fetchTime()));
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }
