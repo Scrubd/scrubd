@@ -19,11 +19,3 @@ const VideoListEntry = ({ video, dispatch }) => (
 );
 
 export default connect(null)(VideoListEntry);
-
-        // const iframe = document.querySelector('iframe');
-        // const player = new Player(iframe);
-        // const stuff = video.url.split('/');
-        // const lol = stuff[stuff.length - 1];
-        // player.loadVideo(lol).then((id) => {
-        //   console.log(id);
-        // });
