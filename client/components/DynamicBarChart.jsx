@@ -8,27 +8,20 @@ import Player from '@vimeo/player';
 
 class DynamicBarChart extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      data: this.props.comments,
-      activeIndex: 0,
-    };
+      showData : [],
+    }
   }
 
-
-  handleClick(data, index) {
-    this.setState({
-      activeIndex: index,
-    });
-  }
-
-  render() {
+  componentWillMount() {
     const dbData = this.props.comments;
-    const numInc = 20;
+    console.log("comments: " + this.props.comments);
+    console.log("duration: " + this.props.duration);
+    const numInc = 40;
     var videoLength = this.props.duration;
     var incrementLength = videoLength / numInc;
     const barData = [];
-    // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
 
     class BarDatum {
       constructor(timeName, timeLower, timeUpper) {
@@ -52,24 +45,29 @@ class DynamicBarChart extends React.Component {
       }
     }
 
-    const { activeIndex, data } = this.state;
-    const activeItem = dbData[activeIndex];
+    this.setState({
+      showData : barData,
+    })
+
+  }
+  render() {
+
 
     return (
       <div>
-{console.log(this.props.duration)}
+        {console.log(this.props.duration)}
         <BarChart
-          width={600} height={80} data={barData}
+          width={600} height={80} data={this.state.showData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="timeName" />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
-          <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
+          <Bar dataKey="count" fill="#8884d8">
             {
-            data.map((entry, index) => (
-              <Cell cursor="pointer" fill={index === activeIndex ? '#f47d42' : '#721111'} key={`cell-${index}`} />
+            this.state.showData.map((entry, index) => (
+              <Cell cursor="pointer" fill={'#721111'} key={`cell-${index}`} />
             ))
           }
           </Bar>
