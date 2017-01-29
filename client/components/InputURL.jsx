@@ -22,14 +22,7 @@ class InputURL extends React.Component {
         .then((video) => {
           this.props.dispatch(fetchComments(data.url));
         });
-      // loadVideo(this.refs.url.value);
-      const iframe = document.querySelector('iframe');
-      const player = new Player(iframe);
-      const stuff = this.refs.url.value.split('/');
-      const lol = stuff[stuff.length - 1];
-      player.loadVideo(lol).then((id) => {
-        console.log(id);
-      });
+      loadVideo(url);
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }
