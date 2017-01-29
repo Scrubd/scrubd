@@ -28,7 +28,7 @@ class App extends React.Component {
             <VideoPlayer currentVideo={this.props.video} comments={this.props.comments} />
           </div>
           <div>
-            <DynamicBarChart comments={this.props.comments} />
+            <DynamicBarChart duration={this.props.duration} comments={this.props.comments} />
           </div>
           <div className="col-lg-6 col-lg-offset-2" id="VideoPlayer">
             <CommentBox comments={this.props.comments} name={this.props.name} />
@@ -43,4 +43,5 @@ export default connect(state => ({
   video: state.video.currentVideo,
   comments: state.comments.comments,
   name: state.user.name,
+  duration: state.video.duration,
 }))(App);

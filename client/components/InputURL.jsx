@@ -9,7 +9,6 @@ const validUrl = require('valid-url');
 class InputURL extends React.Component {
 
   videoSubmit() {
-    event.preventDefault();
     let url = this.refs.url.value;
     this.refs.url.value = '';
     if (validUrl.isUri(url) && url.includes('vimeo')) {

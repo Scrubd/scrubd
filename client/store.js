@@ -7,6 +7,7 @@ const middleware = applyMiddleware(logger(), thunk);
 const defaultState = {
   video: {
     currentVideo: 'https://player.vimeo.com/video/76979871',
+    duration: 80,
   },
   comments: {
     comments: [],

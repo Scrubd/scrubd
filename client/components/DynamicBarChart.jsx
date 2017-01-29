@@ -1,6 +1,7 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Player from '@vimeo/player';
 
 //for displaying count of comments at intervals
 
@@ -11,8 +12,25 @@ class DynamicBarChart extends React.Component {
     super(props);
     this.state = {
       data: this.props.comments,
+      duration: null,
       activeIndex: 0,
     };
+  }
+
+  componentDidMount() {
+    var _this = this;
+    const iframe = document.querySelector('iframe');
+    const player = new Player(iframe);
+
+    console.log("video duration ================");
+    // console.log(player.getDuration());
+    player.getDuration()
+      .then(function(result) {
+        _this.setState(
+          {duration: result}
+        )
+      })
+
   }
   handleClick(data, index) {
     this.setState({
@@ -22,10 +40,9 @@ class DynamicBarChart extends React.Component {
 
   render() {
     const dbData = this.props.comments;
-
     const numInc = 20;
-    var videoLength = 100;
-    const incrementLength = videoLength / numInc;
+    var videoLength = this.state.duration;
+    var incrementLength = videoLength / numInc;
     const barData = [];
     // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
 
