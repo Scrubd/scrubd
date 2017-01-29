@@ -1,6 +1,5 @@
-import { connect } from 'react-redux';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import { checkAuth } from '../actions/userActions';
 import { fetchComments } from '../actions/commentsActions';
 import { fetchVideos } from '../actions/videoActions';

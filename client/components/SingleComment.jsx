@@ -1,6 +1,5 @@
 import { emojify } from 'react-emojione';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';

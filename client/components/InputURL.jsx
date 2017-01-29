@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { submitURL } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
