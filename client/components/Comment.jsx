@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Scroll from 'react-scroll';
 import { emojify } from 'react-emojione';
 

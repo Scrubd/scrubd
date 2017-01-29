@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { clickVideo } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
+import { loadVideo } from '../componentHelpers';
 
 const VideoListEntry = ({ video, dispatch }) => (
   <div className="videoEntry">
@@ -11,6 +12,8 @@ const VideoListEntry = ({ video, dispatch }) => (
         e.preventDefault();
         dispatch(clickVideo(video));
         dispatch(fetchComments(video.url));
+        loadVideo(video.url);
+        window.localStorage.setItem('currentVideo', JSON.stringify(video));
       }}
     >{video.url}</a>
   </div>

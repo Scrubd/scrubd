@@ -1,6 +1,5 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 // for displaying count of comments at intervals
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { signupOrSignin } from '../actions/userActions';
 
 export default function SigninSignup({ dispatch }) {
@@ -13,7 +12,7 @@ export default function SigninSignup({ dispatch }) {
     <form action="#" onSubmit={submitHandler}>
       <div>
         <label className="pull-right" htmlFor="signin-signup">Signin / Signup</label>
-        <input className="pull-right" id="signin-signup" placeholder="Username here..." ref={(ref) => { textInput = ref; }} />
+        <input className="pull-right" id="signin-signup" placeholder="Username here..." ref={(ref) => { textInput = ref; }} maxLength="20" />
       </div>
     </form>
   );
