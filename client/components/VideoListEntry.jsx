@@ -5,7 +5,7 @@ import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
 
 const VideoListEntry = ({ video, dispatch }) => (
-  <div>
+  <div className="videoEntry">
     <a
       href=""
       onClick={(e) => {
@@ -13,6 +13,7 @@ const VideoListEntry = ({ video, dispatch }) => (
         dispatch(clickVideo(video));
         dispatch(fetchComments(video.url));
         loadVideo(video.url);
+        window.localStorage.setItem('currentVideo', JSON.stringify(video));
       }}
     >{video.url}</a>
   </div>

@@ -23,6 +23,7 @@ class InputURL extends React.Component {
       const data = { url, name: this.props.name };
       this.props.dispatch(submitURL(data))
         .then((video) => {
+          window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
         })
       loadVideo(url);
@@ -36,7 +37,7 @@ class InputURL extends React.Component {
     return (
       <div className="container">
         <input ref="url" placeholder="Add a video..." />
-        <button onClick={this.videoSubmit.bind(this)}>Submit</button>
+        <button className="btn btn-xs" onClick={this.videoSubmit.bind(this)}>Submit</button>
       </div>
     );
   }
