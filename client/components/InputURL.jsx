@@ -18,6 +18,7 @@ class InputURL extends React.Component {
       const data = { url, name: this.props.name };
       this.props.dispatch(submitURL(data))
         .then((video) => {
+          window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
         });
       loadVideo(url);

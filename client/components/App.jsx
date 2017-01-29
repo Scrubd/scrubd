@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { checkAuth } from '../actions/userActions';
 import { fetchComments } from '../actions/commentsActions';
-import { fetchVideos } from '../actions/videoActions';
+import { fetchVideos, clickVideo } from '../actions/videoActions';
+import { loadVideo } from '../componentHelpers';
 import CommentBox from './CommentBox.jsx';
 import DynamicBarChart from './DynamicBarChart.jsx';
 import TopNavBar from './TopNavBar.jsx';
@@ -14,10 +15,17 @@ import css from '../styles/main.css';
 
 class App extends React.Component {
 
-  componentWillMount() {
-    this.props.dispatch(fetchComments(this.props.video));
+  componentDidMount() {
     this.props.dispatch(checkAuth());
     this.props.dispatch(fetchVideos());
+    const currentVideo = JSON.parse(window.localStorage.getItem('currentVideo'));
+    if (currentVideo) {
+      loadVideo(currentVideo.url, () => {}, (err) => { console.log(err); });
+      this.props.dispatch(clickVideo(currentVideo));
+    } else {
+      window.localStorage.setItem('currentVideo', JSON.stringify({ url: this.props.video }));
+    }
+    this.props.dispatch(fetchComments(this.props.video));
   }
 
   render() {

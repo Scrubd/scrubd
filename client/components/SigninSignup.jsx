@@ -12,7 +12,7 @@ export default function SigninSignup({ dispatch }) {
     <form action="#" onSubmit={submitHandler}>
       <div>
         <label htmlFor="signin-signup">Signin / Signup</label>
-        <input id="signin-signup" placeholder="Username here..." ref={(ref) => { textInput = ref; }} />
+        <input id="signin-signup" placeholder="Username here..." ref={(ref) => { textInput = ref; }} maxLength="20" />
       </div>
     </form>
   );
