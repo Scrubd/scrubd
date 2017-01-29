@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { submitURL } from '../actions/videoActions';
+import { submitURL, fetchTime } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
 
@@ -26,7 +26,7 @@ class InputURL extends React.Component {
           this.props.dispatch(fetchComments(data.url));
         })
       loadVideo(url);
-      this.props.dispatch(fetchTime())
+      this.props.dispatch(fetchTime());
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }

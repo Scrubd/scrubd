@@ -28,7 +28,15 @@ class DynamicBarChart extends React.Component {
         _this.setState(
           {duration: result}
         )
+        console.log(_this.state);
+      _this.forceUpdate();
       })
+
+  }
+
+  componentDidUpdate() {
+
+
 
   }
   handleClick(data, index) {
@@ -72,7 +80,7 @@ class DynamicBarChart extends React.Component {
 
     return (
       <div>
-
+{console.log(this.props.duration)}
         <BarChart
           width={500} height={150} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
