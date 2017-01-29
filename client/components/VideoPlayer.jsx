@@ -14,10 +14,9 @@ class VideoPlayer extends React.Component {
 
     player.on('seeked', ((data) => {
       const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
-      var element = document.getElementById(anchor.toString())
+      const element = document.getElementById(anchor.toString());
       element.scrollIntoView();
-
-    }).bind(this));
+    }));
   }
 
   render() {

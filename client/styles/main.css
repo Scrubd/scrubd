@@ -1,32 +1,60 @@
 
-.firstRow {
-  padding: 20px;
-}
-
-#SingleComment {
-  border: 1px solid green;
+body {
+  overflow-x: hidden;
+  background: #fceabb; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #fceabb , #f8b500); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #fceabb , #f8b500); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+margin: 0px;
 }
 
 .navbar {
-  height: 40px;
+  height: 50px;overflow-x: hidden;
   padding: 10px;
   background: gray;
-  width: 100%;
 }
 
 .videoList {
   border: 3px solid gray;
   border-radius: 4px;
   height: 50vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .videoEntry {
   padding: 4px;
   margin: 4px;
   text-align: center;
-  background: lightblue;
-  
+  background-color: #eeeeee;
+  height: 30px;
+}
+
+.commentsContainer {
+  overflow: scroll;
+  height: 150px;
+}
+
+ .oneComment {
+  height: 60px;
+  width: 640px;
+  display: inline-flex;
+  background-color: #eeeeee;
+  border-radius: 6px;
+  padding: 2px 0 2px 0;
+  margin: 2px 0 2px 0;
+ }
+
+.oneComment li {
+  list-style: none;
+}
+.userName {
+  font-size: 1em;
+  padding: 2px 0 2px 2px;
+}
+
+.message {
+  font-size: 1.3em;
+  padding-left: 6px;
+  text-align: left;
 }
 
 div.scroll {
@@ -34,4 +62,3 @@ div.scroll {
   width: 200px;
   height: 200px;
 }
-

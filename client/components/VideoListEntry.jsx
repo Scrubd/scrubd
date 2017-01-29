@@ -4,7 +4,7 @@ import { clickVideo } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 
 const VideoListEntry = ({ video, dispatch }) => (
-  <div>
+  <div className="videoEntry">
     <a
       href=""
       onClick={(e) => {

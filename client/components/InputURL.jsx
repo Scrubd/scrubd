@@ -29,7 +29,7 @@ class InputURL extends React.Component {
     return (
       <div className="container">
         <input ref="url" placeholder="Add a video..." />
-        <button onClick={this.videoSubmit.bind(this)}>Submit</button>
+        <button className="btn" onClick={this.videoSubmit.bind(this)}>Submit</button>
       </div>
     );
   }
