@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One');
 
+.container-fluid {
+  max-height: 100vh;
+}
+
 .navbar {
-  height: 90px;
+  height: 78px;
   overflow-x: hidden;
   padding: 10px;
   background-color:  lightgray;
