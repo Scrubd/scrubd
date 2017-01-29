@@ -7,14 +7,8 @@ import Player from '@vimeo/player';
 // note: should also move BarDatum and data transform logic out of component file
 
 class DynamicBarChart extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showData : [],
-    }
-  }
 
-  componentWillMount() {
+  render() {
     const dbData = this.props.comments;
     console.log("comments: " + this.props.comments);
     console.log("duration: " + this.props.duration);
@@ -45,19 +39,12 @@ class DynamicBarChart extends React.Component {
       }
     }
 
-    this.setState({
-      showData : barData,
-    })
-
-  }
-  render() {
-
 
     return (
       <div>
         {console.log(this.props.duration)}
         <BarChart
-          width={600} height={80} data={this.state.showData}
+          width={600} height={80} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="timeName" />
@@ -66,7 +53,7 @@ class DynamicBarChart extends React.Component {
           <Tooltip />
           <Bar dataKey="count" fill="#8884d8">
             {
-            this.state.showData.map((entry, index) => (
+            barData.map((entry, index) => (
               <Cell cursor="pointer" fill={'#721111'} key={`cell-${index}`} />
             ))
           }
