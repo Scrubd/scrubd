@@ -32,7 +32,7 @@ class VideoPlayer extends React.Component {
   render() {
     return (
       <div>
-        <iframe src={this.props.currentVideo} width="640" height="360" frameBorder="0" allowFullScreen />
+        <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameBorder="0" allowFullScreen />
       </div>
     );
   }
