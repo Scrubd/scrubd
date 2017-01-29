@@ -25,7 +25,7 @@ class App extends React.Component {
     } else {
       window.localStorage.setItem('currentVideo', JSON.stringify({ url: this.props.video }));
     }
-    this.props.dispatch(fetchComments(this.props.video));
+    this.props.dispatch(fetchComments(currentVideo ? currentVideo.url : this.props.video));
   }
 
   render() {
