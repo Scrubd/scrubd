@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Player from '@vimeo/player';
 import { submitURL } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
