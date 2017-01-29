@@ -20,7 +20,7 @@ class App extends React.Component {
     this.props.dispatch(fetchVideos());
     const currentVideo = JSON.parse(window.localStorage.getItem('currentVideo'));
     if (currentVideo) {
-      loadVideo(currentVideo.url, () => {}, (err) => { console.log(err); });
+      loadVideo(currentVideo.url);
       this.props.dispatch(clickVideo(currentVideo));
     } else {
       window.localStorage.setItem('currentVideo', JSON.stringify({ url: this.props.video }));
