@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One');
 
 .navbar {
   height: 90px;
@@ -12,6 +12,7 @@ h3 {
   text-align: center;
   margin: 5px auto 5px auto;
   display: inline-block;
+  font-family: 'Fugaz One', cursive;
 }
 
 .videoList {
