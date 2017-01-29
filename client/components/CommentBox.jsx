@@ -5,7 +5,7 @@ import AllComments from './AllComments.jsx';
 const CommentBox = ({ comments, name }) => (
   <div>
     <div>
-      { name ? <SingleComment name={name} /> : null }
+      { name ? <SingleComment /> : null }
       <AllComments comments={comments} />
     </div>
   </div>
