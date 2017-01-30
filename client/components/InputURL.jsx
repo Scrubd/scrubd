@@ -15,7 +15,7 @@ class InputURL extends React.Component {
     if (validUrl.isUri(url) && url.includes('vimeo')) {
       const final = url.substr(url.lastIndexOf('/') + 1);
       url = `https://player.vimeo.com/video/${final}`;
-      const data = { url, name: this.props.name };
+      const data = { url, name: this.props.name, increment: true };
       this.props.dispatch(submitURL(data))
         .then((video) => {
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
