@@ -1,6 +1,11 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('scrubd', 'root', '');
+let db;
+if (process.env.NODE_ENV === 'production') {
+  db = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, { port: process.env.DB_HOST });
+} else {
+  db = new Sequelize('scrubd', 'root', '');
+}
 
 db.query('set foreign_key_checks=0', null);
 
