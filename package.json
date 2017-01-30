@@ -4,10 +4,10 @@
   "description": "Hack Reactor greenfield project",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack",
+    "postinstall": "webpack -p",
     "start": "NODE_ENV=production node server/server.js",
     "test": "mocha ./spec",
-    "dev": "NODE_PATH=$NODE_PATH:./src node ./server/server.js & webpack -w",
+    "dev": "nodemon ./server/server.js & webpack -w",
     "data": "mysql.server start && mysql -u root < ./database/schema.sql && node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
   },
   "repository": {
@@ -66,7 +66,8 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
   },
   "engines": {
     "node": "6.9.1"
