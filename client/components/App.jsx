@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { checkAuth } from '../actions/userActions';
 import { fetchComments } from '../actions/commentsActions';
-import { fetchVideos, clickVideo } from '../actions/videoActions';
+import { fetchVideos, clickVideo, fetchTime } from '../actions/videoActions';
 import { loadVideo } from '../componentHelpers';
 import CommentBox from './CommentBox.jsx';
 import DynamicBarChart from './DynamicBarChart.jsx';
@@ -20,8 +20,10 @@ class App extends React.Component {
     this.props.dispatch(fetchVideos());
     const currentVideo = JSON.parse(window.localStorage.getItem('currentVideo'));
     if (currentVideo) {
-      loadVideo(currentVideo.url);
+      loadVideo(currentVideo.url)
+        .then(() =>this.props.dispatch(fetchTime()));
       this.props.dispatch(clickVideo(currentVideo));
+
     } else {
       window.localStorage.setItem('currentVideo', JSON.stringify({ url: this.props.video }));
     }
