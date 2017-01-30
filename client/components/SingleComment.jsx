@@ -39,7 +39,7 @@ class SingleComment extends React.Component {
         data = {
           name: this.props.name,
           comment: ':thumbsup:',
-          URL: this.props.name,
+          URL: this.props.video,
           time_stamp: seconds,
         };
         this.props.dispatch(submitComment(data));
