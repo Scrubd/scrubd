@@ -32,7 +32,6 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <nav className="row">
-          <h2>Scrubd</h2>
           <TopNavBar />
         </nav>
 
@@ -58,7 +57,6 @@ class App extends React.Component {
             <CommentBox comments={this.props.comments} name={this.props.name} />
           </div>
         </div>
-
       </div>
     );
   }

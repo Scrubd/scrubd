@@ -6,6 +6,7 @@ import InputURL from './InputURL.jsx';
 
 const TopNavBar = ({ sessionActive, name, dispatch }) => (
   <div className="top">
+    <span className="header">Scrubd</span>
     { sessionActive ? (<Logout className="pull-right logout" dispatch={dispatch} />) : (<SigninSignup dispatch={dispatch} />) }
     { name ? <InputURL name={name} /> : null }
   </div>

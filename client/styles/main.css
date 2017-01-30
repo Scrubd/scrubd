@@ -1,21 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
 nav {
-  background-color:  lightgray;
+  background: #222222;
   margin-bottom: 10px;
-  border-bottom: darkgray solid 1px;
+  border-bottom:#00ACE9 solid 3px;
+  height: 60px;
 }
 body {
   font-family: 'Raleway', sans-serif;
 }
 
-h2 {
+.header  {
+  left: 45%;
+  width: 100px;
   color: white;
-  margin: 5px auto 5px auto;
-  padding-left: 10px;
-  font-family: 'Bungee', cursive;
+  justify-content: center;
+  position: absolute;
+  margin-top: 3px;
+  font-family: 'Fugaz One', cursive;
   color: white;
+  font-size: 3rem;
+}
+
+.top {
+  margin: 10px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.logout, .add, .signUp {
+  color: white;
+  background-color: transparent;
+  margin-left: 2px;
+}
+
+.logout, .add: hover {
+  color: #00ACE9;
+}
+
+.signUp {
+  color: white;
+  background-color: transparent;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 2px;
 }
 
 .videoList {
@@ -29,29 +59,34 @@ h2 {
   text-align: center;
   background-color: #eeeeee;
   height: 30px;
-  border: darkgray solid 1px;
+  border: #222222 solid 1px;
   border-radius: 3px;
 }
 
 .commentsContainer {
   overflow: scroll;
-  height: 125px;
+  height: 140px;
+  width: 650px;
+  border: darkgray solid 2px;
+  border-radius: 1px;
+  margin-top: 2px;
 }
 
  .oneComment {
-  height: 55px;
+  height: 50px;
   width: 640px;
   display: inline-flex;
   background-color: #eeeeee;
   padding: 2px 0 2px 0;
-  margin: 2px 0 2px 0;
-   border: darkgray solid 1px;
+  margin: 2px 2px 2px 2px;
+   border: #222222 solid 1px;
    border-radius: 2px;
  }
 
 .oneComment li {
-  list-style: none;
-}
+    list-style: none;
+ }
+
 .userName {
   font-size: 0.9em;
   padding: 2px 0 2px 2px;
@@ -59,16 +94,12 @@ h2 {
 }
 
 .message {
-  font-size: 1.2em;
+  font-size: 1em;
   padding-left: 6px;
   text-align: left;
 }
 
 .logout {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
-.addURL {
-  margin-left: 10px;
-}
