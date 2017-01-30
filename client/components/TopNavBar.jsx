@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Logout from './Logout.jsx';
 import SigninSignup from './SigninSignup.jsx';
 
 const TopNavBar = ({ sessionActive, dispatch }) => (
   <nav>
-    { sessionActive ? (<Logout dispatch={dispatch} />) : (<SigninSignup dispatch={dispatch} />) }
+    <h3>Scrubd</h3>
+    { sessionActive ? (<Logout className="pull-right logout" dispatch={dispatch} />) : (<SigninSignup dispatch={dispatch} />) }
   </nav>
 );
 

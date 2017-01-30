@@ -1,89 +1,84 @@
+import { emojify } from 'react-emojione';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
-import {emojify} from 'react-emojione';
+import { makePlayer } from '../componentHelpers';
 
 class SingleComment extends React.Component {
 
   commentSubmit() {
     event.preventDefault();
+    if (this.refs.comment.value === '') {
+      alert('yo give us a comment');
+      return;
+    }
     const comment = this.refs.comment.value;
     this.refs.comment.value = '';
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
+    const player = makePlayer();
 
     player.getCurrentTime()
-      .then((seconds) => {
-        return {
-          name: this.props.name,
-          comment,
-          URL: videoSource,
-          time_stamp: seconds,
-        };
-      })
+      .then(seconds => ({
+        name: this.props.name,
+        comment,
+        URL: this.props.video,
+        time_stamp: seconds,
+      }))
       .then((data) => {
         this.props.dispatch(submitComment(data));
       });
   }
 
-  thumbsUpSubmit () {
+  thumbsUpSubmit() {
     event.preventDefault();
-    var iframe = document.querySelector('iframe');
-    var player = new Player(iframe);
-    var videoSource = player.element.getAttribute('src');
-    var timeStamp;
-    var data;
-    // var that = this;
+    const player = makePlayer();
+    let data;
 
     player.getCurrentTime()
       .then(((seconds) => {
         data = {
-          name: 'JOSEPH',
-          comment: ":thumbsup:",
-          URL: videoSource,
-          time_stamp: seconds
+          name: this.props.name,
+          comment: ':thumbsup:',
+          URL: this.props.name,
+          time_stamp: seconds,
         };
         this.props.dispatch(submitComment(data));
-      }).bind(this));
+      }));
   }
 
-  thumbsDownSubmit () {
+  thumbsDownSubmit() {
     event.preventDefault();
-    var iframe = document.querySelector('iframe');
-    var player = new Player(iframe);
-    var videoSource = player.element.getAttribute('src');
-    var timeStamp;
-    var data;
-    // var that = this;
+    const player = makePlayer();
+    let data;
 
     player.getCurrentTime()
       .then(((seconds) => {
         data = {
-          name: 'JOSEPH', // TODO: make this dynamic + various refactorizations / cleanup
-          comment: ":thumbsdown:",
-          URL: videoSource,
-          time_stamp: seconds
+          name: this.props.name,
+          comment: ':thumbsdown:',
+          URL: this.props.video,
+          time_stamp: seconds,
         };
         this.props.dispatch(submitComment(data));
-      }).bind(this));
+      }));
   }
-
 
 
   render() {
     return (
-    <div className='container'>
-      <input ref="comment" placeholder="Submit comment..."/>
-      <button onClick={this.commentSubmit.bind(this)}>Submit</button>
-      <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', {output: 'unicode'})} </span>
-      <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', {output: 'unicode'})} </span>      
-    </div>
-
+      <div className="container">
+        <form action="#">
+          <input ref="comment" placeholder="Submit comment..." maxLength="255" />
+          <button className="btn btn-xs" onClick={this.commentSubmit.bind(this)}>Submit</button>
+          <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', { output: 'unicode' })} </span>
+          <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', { output: 'unicode' })} </span>
+        </form>
+      </div>
     );
   }
 }
 
-export default connect(null)(SingleComment);
+export default connect(state => ({
+  video: state.video.currentVideo,
+  name: state.user.name,
+}))(SingleComment);

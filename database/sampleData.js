@@ -20,7 +20,7 @@ User.bulkCreate([
   });
 
 Video.bulkCreate([
-  { url: 'https://media.w3.org/2010/05/sintel/trailer.mp4', UserId: 1 },
+  { url: 'https://player.vimeo.com/video/183085974', UserId: 1 },
   { url: 'https://player.vimeo.com/video/76979871', UserId: 2 },
 ])
   .then(() => Video.findAll())
