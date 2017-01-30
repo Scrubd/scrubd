@@ -1,12 +1,28 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import React from 'react';
 import Player from '@vimeo/player';
-
+import { findNearestTimeStamp } from '../componentHelpers';
 // for displaying count of comments at intervals
 
 // note: should also move BarDatum and data transform logic out of component file
 
 class DynamicBarChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeIndex: 0,
+    };
+  }
+  handleClick(data, index) {
+    this.setState({
+      activeIndex: index,
+    });
+    console.log("data is =================>" + data.timeLower + "and index is: " + index);
+    const anchor = findNearestTimeStamp(this.props.comments, data.timeLower);
+    const element = document.getElementById(anchor.toString());
+    element.scrollIntoView();
+
+  }
 
 
   render() {
@@ -54,7 +70,7 @@ class DynamicBarChart extends React.Component {
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
-          <Bar dataKey="count" fill="#8884d8">
+          <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
             {
             barData.map((entry, index) => (
               <Cell cursor="pointer" fill={'#721111'} key={`cell-${index}`} />
