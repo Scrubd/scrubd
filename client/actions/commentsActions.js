@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function fetchComments(url) {
   return (dispatch) => {
-    axios.get('/api/comments', {
+    return axios.get('/api/comments', {
       params: { URL: url },
     })
     .then((response) => {
@@ -16,12 +16,12 @@ export function fetchComments(url) {
 
 export function submitComment(data) {
   return (dispatch) => {
-  axios.post('/api/comments', data)
+    return axios.post('/api/comments', data)
     .then((response) => {
       dispatch({ type: 'SUBMIT_COMMENT_FULFILLED', payload: JSON.parse(response.config.data) });
     })
     .catch((err) => {
       dispatch({ type: 'SUBMIT_COMMENT_FAILED', payload: err });
     });
-};
+  };
 }
