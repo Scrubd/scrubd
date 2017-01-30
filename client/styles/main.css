@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-.container-fluid {
-  max-height: 100vh;
-}
-
-.navbar {
-  height: 78px;
-  overflow-x: hidden;
-  padding: 10px;
+nav {
   background-color:  lightgray;
+  margin-bottom: 10px;
+  border-bottom: darkgray solid 1px;
+}
+body {
+  font-family: 'Raleway', sans-serif;
 }
 
-h3 {
+h2 {
   color: white;
-  text-align: center;
   margin: 5px auto 5px auto;
-  display: inline-block;
+  padding-left: 10px;
+  
   font-family: 'Fugaz One', cursive;
+  color: white;
 }
 
 .videoList {
@@ -61,3 +61,11 @@ h3 {
   text-align: left;
 }
 
+.logout {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.addURL {
+  margin-left: 10px;
+}
