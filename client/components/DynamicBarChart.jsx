@@ -29,7 +29,7 @@ class DynamicBarChart extends React.Component {
     // create array of time increments
     for (var i = 0; i < numInc; i++) {
       const onlySeconds = Math.round(i * (incrementLength) + (incrementLength))
-      const minuteAndSecond = Math.round(i * (incrementLength) + (incrementLength))
+      const minuteAndSecond = Math.floor(onlySeconds / 60) + ":" +  (onlySeconds % 60)
       const barDatumCopy = new BarDatum(minuteAndSecond, (i * (incrementLength)), i * (incrementLength) + (incrementLength));
       barData.push(barDatumCopy);
     }
