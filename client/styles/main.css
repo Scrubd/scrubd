@@ -30,6 +30,8 @@ h2 {
   text-align: center;
   background-color: #eeeeee;
   height: 30px;
+  border: darkgray solid 1px;
+  border-radius: 3px;
 }
 
 .commentsContainer {
@@ -42,9 +44,10 @@ h2 {
   width: 640px;
   display: inline-flex;
   background-color: #eeeeee;
-  border-radius: 6px;
   padding: 2px 0 2px 0;
   margin: 2px 0 2px 0;
+   border: darkgray solid 1px;
+   border-radius: 2px;
  }
 
 .oneComment li {
