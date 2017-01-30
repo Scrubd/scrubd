@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "webpack",
-    "start": "node server/server.js",
+    "start": "NODE_ENV=production node server/server.js",
     "test": "mocha ./spec",
     "dev": "NODE_PATH=$NODE_PATH:./src node ./server/server.js & webpack -w",
     "data": "mysql.server start && mysql -u root < ./database/schema.sql && node ./database/models.js && node ./database/models.js && node ./database/sampleData.js"
