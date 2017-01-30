@@ -58,7 +58,6 @@ class App extends React.Component {
             <CommentBox comments={this.props.comments} name={this.props.name} />
           </div>
         </div>
-
       </div>
     );
   }
