@@ -32,9 +32,5 @@ export function loadVideo(url, resolve, reject) {
   const player = makePlayer();
   const splitUrl = url.split('/');
   const id = splitUrl[splitUrl.length - 1];
-  player.loadVideo(id).then((ID) => {
-    resolve(ID);
-  }).catch((err) => {
-    reject(err);
-  });
+  return player.loadVideo(id).then(ID => ID).catch(err => err);
 }

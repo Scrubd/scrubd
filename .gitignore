@@ -18,5 +18,7 @@ dist
 
 ./.eslintrc.js
 
-# DS_Store
+build artifacts
+
+npm-debug.log
 .DS_Store

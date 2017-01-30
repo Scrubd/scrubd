@@ -3,6 +3,7 @@ import React from 'react';
 import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
+import { makePlayer } from '../componentHelpers';
 
 class SingleComment extends React.Component {
 
@@ -14,15 +15,13 @@ class SingleComment extends React.Component {
     }
     const comment = this.refs.comment.value;
     this.refs.comment.value = '';
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
+    const player = makePlayer();
 
     player.getCurrentTime()
       .then(seconds => ({
         name: this.props.name,
         comment,
-        URL: videoSource,
+        URL: this.props.video,
         time_stamp: seconds,
       }))
       .then((data) => {
@@ -32,17 +31,15 @@ class SingleComment extends React.Component {
 
   thumbsUpSubmit() {
     event.preventDefault();
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
+    const player = makePlayer();
     let data;
 
     player.getCurrentTime()
       .then(((seconds) => {
         data = {
-          name: 'JOSEPH',
+          name: this.props.name,
           comment: ':thumbsup:',
-          URL: videoSource,
+          URL: this.props.name,
           time_stamp: seconds,
         };
         this.props.dispatch(submitComment(data));
@@ -51,17 +48,15 @@ class SingleComment extends React.Component {
 
   thumbsDownSubmit() {
     event.preventDefault();
-    const iframe = document.querySelector('iframe');
-    const player = new Player(iframe);
-    const videoSource = player.element.getAttribute('src');
+    const player = makePlayer();
     let data;
 
     player.getCurrentTime()
       .then(((seconds) => {
         data = {
-          name: 'JOSEPH', // TODO: make this dynamic + various refactorizations / cleanup
+          name: this.props.name,
           comment: ':thumbsdown:',
-          URL: videoSource,
+          URL: this.props.video,
           time_stamp: seconds,
         };
         this.props.dispatch(submitComment(data));
@@ -83,4 +78,7 @@ class SingleComment extends React.Component {
   }
 }
 
-export default connect(null)(SingleComment);
+export default connect(state => ({
+  video: state.video.currentVideo,
+  name: state.user.name,
+}))(SingleComment);
