@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-
+@import url('https://fonts.googleapis.com/css?family=Bungee');
 nav {
   background-color:  lightgray;
   margin-bottom: 10px;
@@ -14,8 +14,7 @@ h2 {
   color: white;
   margin: 5px auto 5px auto;
   padding-left: 10px;
-  
-  font-family: 'Fugaz One', cursive;
+  font-family: 'Bungee', cursive;
   color: white;
 }
 
@@ -40,7 +39,7 @@ h2 {
 }
 
  .oneComment {
-  height: 50px;
+  height: 55px;
   width: 640px;
   display: inline-flex;
   background-color: #eeeeee;
@@ -56,6 +55,7 @@ h2 {
 .userName {
   font-size: 0.9em;
   padding: 2px 0 2px 2px;
+  font-weight: bold;
 }
 
 .message {
