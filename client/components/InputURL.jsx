@@ -18,6 +18,7 @@ class InputURL extends React.Component {
       const data = { url, name: this.props.name };
       this.props.dispatch(submitURL(data))
         .then((video) => {
+          console.log(video.url);
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
         });
@@ -29,8 +30,8 @@ class InputURL extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <input ref="url" placeholder="Add a video..." />
+      <div className="addURL">
+        <input ref="url" placeholder="Add a Vimeo url..." />
         <button className="btn btn-xs" onClick={this.videoSubmit.bind(this)}>Submit</button>
       </div>
     );
