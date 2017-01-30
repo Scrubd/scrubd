@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { submitURL, fetchTime } from '../actions/videoActions';
+import { submitURL, fetchVideos, fetchTime } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
 
@@ -15,7 +15,7 @@ class InputURL extends React.Component {
     if (validUrl.isUri(url) && url.includes('vimeo')) {
       const final = url.substr(url.lastIndexOf('/') + 1);
       url = `https://player.vimeo.com/video/${final}`;
-      const data = { url, name: this.props.name };
+      const data = { url, name: this.props.name, increment: true };
       this.props.dispatch(submitURL(data))
         .then((video) => {
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
@@ -24,6 +24,7 @@ class InputURL extends React.Component {
         .then(loadVideo(url))
           .then(() => {
             this.props.dispatch(fetchTime());
+            this.props.dispatch(fetchVideos());
           });
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
