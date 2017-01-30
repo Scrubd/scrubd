@@ -23,7 +23,7 @@ class DynamicBarChart extends React.Component {
     const dbData = this.props.comments;
 
     const numInc = 20;
-    const videoLength = 50;
+    var videoLength = 100;
     const incrementLength = videoLength / numInc;
     const barData = [];
     // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
