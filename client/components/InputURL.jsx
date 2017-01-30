@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { submitURL } from '../actions/videoActions';
+import { submitURL, fetchVideos } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
 
@@ -20,6 +20,7 @@ class InputURL extends React.Component {
         .then((video) => {
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
+          this.props.dispatch(fetchVideos());
         });
       loadVideo(url);
     } else {
