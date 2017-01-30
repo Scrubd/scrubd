@@ -31,10 +31,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="navbar">
+        <nav className="row">
+          <h2>Scrubd</h2>
           <TopNavBar />
-          { this.props.name ? <InputURL name={this.props.name} /> : null }
-        </div>
+        </nav>
 
         <div className="row firstRow">
           <div className="col-lg-6 col-lg-offset-1 videoPLayer">
