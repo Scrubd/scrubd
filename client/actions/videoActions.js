@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Player from '@vimeo/player';
-import { makePlayer } from '../componentHelpers';
+import { makePlayer, loadVideo } from '../componentHelpers';
 
 export function submitURL(data) {
   return dispatch => axios.post('/api/videos', data)
@@ -25,15 +25,18 @@ export function fetchVideos() {
 
 export function clickVideo(video) {
   return (dispatch) => {
+    console.log("clickVideo action ===>" + video)
     dispatch({ type: 'CLICK_VIDEO', payload: video });
     return video;
   };
 }
 
 export function fetchTime() {
-  const iframe = document.querySelector('iframe');
-  const player = new Player(iframe);
-  console.log(player);
+  var player = null;
+  var iframe = null;
+  iframe = document.querySelector('iframe');
+  player = new Player(iframe);
+  // console.log(player);
   return (dispatch) => {
     return player.getDuration()
       .then((response) => {
@@ -46,3 +49,9 @@ export function fetchTime() {
       });
   };
 }
+
+  // const iframe = document.querySelector('iframe');
+  // const player = new Player(iframe);
+  // console.log(player);
+  // return (dispatch) => {
+  //   return player.getDuration()

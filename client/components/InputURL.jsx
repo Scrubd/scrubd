@@ -21,8 +21,10 @@ class InputURL extends React.Component {
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
         })
-      loadVideo(url)
-        .then(this.props.dispatch(fetchTime()));
+        .then(loadVideo(url))
+          .then(() => {
+            this.props.dispatch(fetchTime());
+          });
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }

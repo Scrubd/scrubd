@@ -8,6 +8,7 @@ import Player from '@vimeo/player';
 
 class DynamicBarChart extends React.Component {
 
+
   render() {
     const dbData = this.props.comments;
     console.log("comments: " + this.props.comments);
@@ -27,7 +28,7 @@ class DynamicBarChart extends React.Component {
     }
     // create array of time increments
     for (var i = 0; i < numInc; i++) {
-      const barDatumCopy = new BarDatum(i * (incrementLength) + (incrementLength), (i * (incrementLength)), i * (incrementLength) + (incrementLength));
+      const barDatumCopy = new BarDatum(Math.round(i * (incrementLength) + (incrementLength)), (i * (incrementLength)), i * (incrementLength) + (incrementLength));
       barData.push(barDatumCopy);
     }
 
@@ -42,7 +43,7 @@ class DynamicBarChart extends React.Component {
 
     return (
       <div>
-        {console.log(this.props.duration)}
+        {console.log("duration === " + this.props.duration)}
         <BarChart
           width={600} height={80} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}

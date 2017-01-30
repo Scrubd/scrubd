@@ -6,8 +6,8 @@ import reducer from './reducers/index';
 const middleware = applyMiddleware(logger(), thunk);
 const defaultState = {
   video: {
-    currentVideo: 'https://player.vimeo.com/video/76979871',
-    duration: 80,
+    currentVideo: 'https://player.vimeo.com/video/192352553',
+    duration: 337,
     videos: [],
   },
   comments: {
