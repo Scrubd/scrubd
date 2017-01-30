@@ -71,7 +71,7 @@ class SingleComment extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <form action="#">
           <input ref="comment" placeholder="Submit comment..." maxLength="255" />
           <button className="btn btn-xs" onClick={this.commentSubmit.bind(this)}>Submit</button>
