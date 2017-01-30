@@ -6,7 +6,7 @@ const Video = models.Video;
 
 module.exports = {
   get: (req, res) => {
-    Video.findAll({ limit: 30 }).then((results) => {
+    Video.findAll({ limit: 30, order: 'views DESC' }).then((results) => {
       if (results) {
         const videos = [];
         for (const item of results) {
