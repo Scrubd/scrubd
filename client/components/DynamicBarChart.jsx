@@ -17,12 +17,8 @@ class DynamicBarChart extends React.Component {
     this.setState({
       activeIndex: index,
     });
-    console.log("data is =================>" + data.timeLower + "and index is: " + index);
     const anchor = findNearestTimeStamp(this.props.comments, data.timeLower);
-    console.log("timeLower is =============>" + data.timeLower);
     const element = document.getElementById(anchor.toString());
-    console.log("found anchor is -------------------------->" + anchor);
-    console.log("found element is -------------------------->" + element.getAttribute('id'));
     element.scrollIntoView({block: "end", behavior: "smooth"});
     
 
@@ -31,8 +27,6 @@ class DynamicBarChart extends React.Component {
 
   render() {
     const dbData = this.props.comments;
-    console.log("comments: " + this.props.comments);
-    console.log("duration: " + this.props.duration);
     const numInc = 40;
     var videoLength = this.props.duration;
     var incrementLength = videoLength / numInc;
@@ -65,7 +59,6 @@ class DynamicBarChart extends React.Component {
 
     return (
       <div>
-        {console.log("duration === " + this.props.duration)}
         <BarChart
           width={600} height={80} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
