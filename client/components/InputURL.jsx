@@ -42,7 +42,7 @@ class InputURL extends React.Component {
     return (
       <div className="addURL">
         <input className="top" ref="url" placeholder="Add a Vimeo url..." />
-        <button className="btn btn-xs top" onClick={this.videoSubmit.bind(this)}> <span className="glyphicon glyphicon-plus" />
+        <button className="btn btn-xs  glyphicon" onClick={this.videoSubmit.bind(this)}> <span className="glyphicon glyphicon-plus" />
         </button>
       </div>
     );

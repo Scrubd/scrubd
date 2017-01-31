@@ -4,7 +4,8 @@ import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
 import { makePlayer } from '../componentHelpers';
-
+//* ***SORRY SINGLE COMMENT IS A TERRIBLE NAME *****/
+//* **** this is the component for  adding a comment ******//
 class SingleComment extends React.Component {
 
   commentSubmit() {

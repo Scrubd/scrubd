@@ -17,20 +17,18 @@ class DynamicBarChart extends React.Component {
     this.setState({
       activeIndex: index,
     });
-    console.log("data is =================>" + data.timeLower + "and index is: " + index);
     const anchor = findNearestTimeStamp(this.props.comments, data.timeLower);
     const element = document.getElementById(anchor.toString());
-    element.scrollIntoView();
+    element.scrollIntoView({block: "end", behavior: "smooth"});
     
 
   }
 
 
   render() {
+    //the below bodies of code until return are helper logic that should be extracted and placed elsewhere. sorry!
     const dbData = this.props.comments;
-    console.log("comments: " + this.props.comments);
-    console.log("duration: " + this.props.duration);
-    const numInc = 40;
+    const numInc = 60;
     var videoLength = this.props.duration;
     var incrementLength = videoLength / numInc;
     const barData = [];
@@ -62,7 +60,6 @@ class DynamicBarChart extends React.Component {
 
     return (
       <div>
-        {console.log("duration === " + this.props.duration)}
         <BarChart
           width={600} height={80} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -71,10 +68,10 @@ class DynamicBarChart extends React.Component {
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
-          <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
+          <Bar dataKey="count" fill="#e8193b" onClick={this.handleClick.bind(this)}>
             {
             barData.map((entry, index) => (
-              <Cell cursor="pointer" fill={'#721111'} key={`cell-${index}`} />
+              <Cell cursor="pointer" fill={'#e8193b'} key={`cell-${index}`} />
             ))
           }
           </Bar>
