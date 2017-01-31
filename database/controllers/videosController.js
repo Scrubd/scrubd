@@ -19,9 +19,10 @@ module.exports = {
     });
   },
   post: (req, res) => {
-    const { url, name, increment } = req.body;
+    const { url, name, increment, title } = req.body;
     Video.findOrCreate({
       where: { url },
+      defaults: { title },
     }).spread((video, created) => {
       if (increment) {
         video.increment('views');
