@@ -1,6 +1,7 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import React from 'react';
-
+import Player from '@vimeo/player';
+import { findNearestTimeStamp, makePlayer, loadVideo } from '../componentHelpers';
 // for displaying count of comments at intervals
 
 // note: should also move BarDatum and data transform logic out of component file
@@ -9,7 +10,6 @@ class DynamicBarChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.comments,
       activeIndex: 0,
     };
   }
@@ -17,16 +17,21 @@ class DynamicBarChart extends React.Component {
     this.setState({
       activeIndex: index,
     });
+    const anchor = findNearestTimeStamp(this.props.comments, data.timeLower);
+    const element = document.getElementById(anchor.toString());
+    element.scrollIntoView({block: "end", behavior: "smooth"});
+    
+
   }
 
-  render() {
-    const dbData = this.props.comments;
 
-    const numInc = 20;
-    const videoLength = 50;
-    const incrementLength = videoLength / numInc;
+  render() {
+    //the below bodies of code until return are helper logic that should be extracted and placed elsewhere. sorry!
+    const dbData = this.props.comments;
+    const numInc = 60;
+    var videoLength = this.props.duration;
+    var incrementLength = videoLength / numInc;
     const barData = [];
-    // var barDatum = {timeName: "", timeUpper: null, timeLower: null, count: 0}
 
     class BarDatum {
       constructor(timeName, timeLower, timeUpper) {
@@ -38,7 +43,9 @@ class DynamicBarChart extends React.Component {
     }
     // create array of time increments
     for (var i = 0; i < numInc; i++) {
-      const barDatumCopy = new BarDatum(i * (incrementLength) + (incrementLength), (i * (incrementLength)), i * (incrementLength) + (incrementLength));
+      const onlySeconds = Math.round(i * (incrementLength) + (incrementLength))
+      const minuteAndSecond = Math.floor(onlySeconds / 60) + ":" +  (onlySeconds % 60)
+      const barDatumCopy = new BarDatum(minuteAndSecond, (i * (incrementLength)), i * (incrementLength) + (incrementLength));
       barData.push(barDatumCopy);
     }
 
@@ -50,12 +57,9 @@ class DynamicBarChart extends React.Component {
       }
     }
 
-    const { activeIndex, data } = this.state;
-    const activeItem = data[activeIndex];
 
     return (
       <div>
-
         <BarChart
           width={600} height={80} data={barData}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -64,10 +68,10 @@ class DynamicBarChart extends React.Component {
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
-          <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
+          <Bar dataKey="count" fill="#e8193b" onClick={this.handleClick.bind(this)}>
             {
-            data.map((entry, index) => (
-              <Cell cursor="pointer" fill={index === activeIndex ? '#f47d42' : '#721111'} key={`cell-${index}`} />
+            barData.map((entry, index) => (
+              <Cell cursor="pointer" fill={'#e8193b'} key={`cell-${index}`} />
             ))
           }
           </Bar>

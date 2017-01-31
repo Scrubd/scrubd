@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clickVideo } from '../actions/videoActions';
+import { clickVideo, fetchTime } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo } from '../componentHelpers';
 
@@ -12,10 +12,13 @@ const VideoListEntry = ({ video, dispatch }) => (
         e.preventDefault();
         dispatch(clickVideo(video));
         dispatch(fetchComments(video.url));
-        loadVideo(video.url);
+        loadVideo(video.url)
+          .then(() => {
+            dispatch(fetchTime());
+          });
         window.localStorage.setItem('currentVideo', JSON.stringify(video));
       }}
-    >{video.url}</a>
+    >{video.title}</a>
   </div>
 );
 

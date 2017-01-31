@@ -4,7 +4,8 @@ import Player from '@vimeo/player';
 import { connect } from 'react-redux';
 import { submitComment } from '../actions/commentsActions';
 import { makePlayer } from '../componentHelpers';
-
+//* ***SORRY SINGLE COMMENT IS A TERRIBLE NAME *****/
+//* **** this is the component for  adding a comment ******//
 class SingleComment extends React.Component {
 
   commentSubmit() {
@@ -39,7 +40,7 @@ class SingleComment extends React.Component {
         data = {
           name: this.props.name,
           comment: ':thumbsup:',
-          URL: this.props.name,
+          URL: this.props.video,
           time_stamp: seconds,
         };
         this.props.dispatch(submitComment(data));
@@ -66,10 +67,10 @@ class SingleComment extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <form action="#">
           <input ref="comment" placeholder="Submit comment..." maxLength="255" />
-          <button className="btn btn-xs" onClick={this.commentSubmit.bind(this)}>Submit</button>
+          <button className="btn btn-xs commentButton" onClick={this.commentSubmit.bind(this)}>Submit</button>
           <span onClick={this.thumbsUpSubmit.bind(this)}> {emojify(':thumbsup:', { output: 'unicode' })} </span>
           <span onClick={this.thumbsDownSubmit.bind(this)}> {emojify(':thumbsdown:', { output: 'unicode' })} </span>
         </form>
