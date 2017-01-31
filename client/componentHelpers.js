@@ -12,9 +12,19 @@ export function findNearestTimeStamp(comments, timeStamp) {
   } else if (timeStamp > comments[comments.length - 1].time_stamp) {
     return comments[comments.length - 1].time_stamp;
   } else if (timeStamp >= middle.time_stamp && timeStamp < next.time_stamp) {
-    return middle.time_stamp;
+    const distanceFrom_middle = timeStamp - middle.time_stamp
+    const distanceFrom_next = next.time_stamp - timeStamp
+    if (distanceFrom_middle < distanceFrom_next){
+      return middle.time_stamp;
+    } else {return next.time_stamp;}
+    // return middle.time_stamp; //write logic to either return either next or middle
   } else if (timeStamp >= previous.time_stamp && timeStamp < middle.time_stamp) {
-    return previous.time_stamp;
+    const distanceFrom_previous = timeStamp - previous.time_stamp;
+    const distanceFrom_mid = middle.time_stamp - timeStamp
+    if (distanceFrom_previous < distanceFrom_mid){
+      return previous.time_stamp;
+    } else {return middle.time_stamp;}    
+  //  return previous.time_stamp;//write logic to either return previous or middle
   } else if (timeStamp < middle.time_stamp) {
     return findNearestTimeStamp(comments.slice(0, middleIndex), timeStamp);
   } else if (timeStamp > middle.time_stamp) {
