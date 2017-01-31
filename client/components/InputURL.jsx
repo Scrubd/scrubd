@@ -11,28 +11,28 @@ class InputURL extends React.Component {
   videoSubmit() {
     event.preventDefault();
     const player = makePlayer();
-    // player.getVideoTitle().then((title) => {
-      
-    // });
     let url = this.refs.url.value;
     this.refs.url.value = '';
     if (validUrl.isUri(url) && url.includes('vimeo')) {
       const final = url.substr(url.lastIndexOf('/') + 1);
       url = `https://player.vimeo.com/video/${final}`;
-      const data = { url, name: this.props.name, increment: true };
-      this.props.dispatch(submitURL(data))
-        .then((video) => {
-          console.log(video.url);
-          window.localStorage.setItem('currentVideo', JSON.stringify(data));
-          this.props.dispatch(fetchComments(data.url));
-          this.props.dispatch(fetchVideos());
-        })
-        .then(() => {
-          return loadVideo(url);
-        })
-        .then(() => {
-          this.props.dispatch(fetchTime());
-        });
+      const data = { url, title: null, duration: null, name: this.props.name, increment: true };
+      loadVideo(url)
+      .then(() => player.getVideoTitle())
+      .then((title) => {
+        data.title = title;
+        return this.props.dispatch(fetchTime());
+      })
+      .then((duration) => {
+        data.duration = duration;
+        window.localStorage.setItem('currentVideo', JSON.stringify(data));
+        return this.props.dispatch(submitURL(data));
+      })
+      .then(() => this.props.dispatch(fetchComments(data.url)))
+      .then(() => this.props.dispatch(fetchVideos()))
+      .catch((err) => {
+        console.log(err);
+      });
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }

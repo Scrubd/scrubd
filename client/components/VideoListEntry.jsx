@@ -18,7 +18,7 @@ const VideoListEntry = ({ video, dispatch }) => (
           });
         window.localStorage.setItem('currentVideo', JSON.stringify(video));
       }}
-    >{video.url}</a>
+    >{video.title}</a>
   </div>
 );
 

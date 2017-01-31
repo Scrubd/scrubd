@@ -20,8 +20,8 @@ User.bulkCreate([
   });
 
 Video.bulkCreate([
-  { url: 'https://player.vimeo.com/video/183085974', UserId: 1, title: 'BONESHAKER (starring Quvenzhané Wallis)' },
-  { url: 'https://player.vimeo.com/video/76979871', UserId: 2, title: 'The New Vimeo Player (You Know, For Videos)' },
+  { url: 'https://player.vimeo.com/video/183085974', UserId: 1, title: 'BONESHAKER (starring Quvenzhané Wallis)', duration: 779 },
+  { url: 'https://player.vimeo.com/video/76979871', UserId: 2, title: 'The New Vimeo Player (You Know, For Videos)', duration: 62 },
 ])
   .then(() => Video.findAll())
   .then((videos) => {

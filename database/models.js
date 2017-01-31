@@ -32,6 +32,9 @@ const Video = db.define('Video', {
   title: {
     type: Sequelize.CHAR(255),
   },
+  duration: {
+    type: Sequelize.INTEGER,
+  },
 }, {
   timestamps: false,
 });
