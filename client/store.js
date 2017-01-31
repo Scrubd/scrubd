@@ -8,6 +8,7 @@ const defaultState = {
   video: {
     currentVideo: 'https://player.vimeo.com/video/76979871',
     title: 'The New Vimeo Player (You Know, For Videos)',
+    duration: null,
     videos: [],
   },
   comments: {

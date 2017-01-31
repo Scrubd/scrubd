@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { submitURL, fetchVideos } from '../actions/videoActions';
+import { submitURL, fetchVideos, fetchTime } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
 import { loadVideo, makePlayer } from '../componentHelpers';
 
@@ -22,11 +22,17 @@ class InputURL extends React.Component {
       const data = { url, name: this.props.name, increment: true };
       this.props.dispatch(submitURL(data))
         .then((video) => {
+          console.log(video.url);
           window.localStorage.setItem('currentVideo', JSON.stringify(data));
           this.props.dispatch(fetchComments(data.url));
           this.props.dispatch(fetchVideos());
+        })
+        .then(() => {
+          return loadVideo(url);
+        })
+        .then(() => {
+          this.props.dispatch(fetchTime());
         });
-      loadVideo(url);
     } else {
       alert('PLEASE ENTER A VALID VIMEO URL'); // TODO: display an error message for the end user on the page itself.
     }
@@ -34,9 +40,10 @@ class InputURL extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <input ref="url" placeholder="Add a video..." />
-        <button className="btn btn-xs" onClick={this.videoSubmit.bind(this)}>Submit</button>
+      <div className="addURL">
+        <input className="top" ref="url" placeholder="Add a Vimeo url..." />
+        <button className="btn btn-xs top" onClick={this.videoSubmit.bind(this)}> <span className="glyphicon glyphicon-plus" />
+        </button>
       </div>
     );
   }
