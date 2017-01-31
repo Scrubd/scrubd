@@ -1,9 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Player from '@vimeo/player';
-import Scroll from 'react-scroll';
 import { findNearestTimeStamp } from '../componentHelpers';
 
-const scroller = Scroll.scroller;
 
 class VideoPlayer extends React.Component {
 
@@ -13,7 +12,7 @@ class VideoPlayer extends React.Component {
     const callback = function (data) {
       const anchor = findNearestTimeStamp(this.props.comments, data.seconds);
       const element = document.getElementById(anchor.toString());
-      element.scrollIntoView();
+      element.scrollIntoView({block: "end", behavior: "smooth"});
     }.bind(this);
     player.on('seeked', callback);
   }
@@ -26,7 +25,6 @@ class VideoPlayer extends React.Component {
     );
   }
 }
-
 
 export default VideoPlayer;
 

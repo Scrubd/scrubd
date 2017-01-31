@@ -21,6 +21,11 @@ export default function reducer(state, action) {
     }
     case 'CLICK_VIDEO': {
       newState.currentVideo = action.payload.url;
+      break;
+    }
+    case 'FETCH_DURATION_FULFILLED': {
+      newState.duration = action.payload;
+      break;
     }
   // no default
   }
