@@ -27,7 +27,7 @@ class DynamicBarChart extends React.Component {
 
   render() {
     const dbData = this.props.comments;
-    const numInc = 40;
+    const numInc = 60;
     var videoLength = this.props.duration;
     var incrementLength = videoLength / numInc;
     const barData = [];
@@ -67,10 +67,10 @@ class DynamicBarChart extends React.Component {
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
-          <Bar dataKey="count" fill="#8884d8" onClick={this.handleClick.bind(this)}>
+          <Bar dataKey="count" fill="#e8193b" onClick={this.handleClick.bind(this)}>
             {
             barData.map((entry, index) => (
-              <Cell cursor="pointer" fill={'#721111'} key={`cell-${index}`} />
+              <Cell cursor="pointer" fill={'#e8193b'} key={`cell-${index}`} />
             ))
           }
           </Bar>
