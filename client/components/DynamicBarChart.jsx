@@ -1,7 +1,7 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import React from 'react';
 import Player from '@vimeo/player';
-import { findNearestTimeStamp } from '../componentHelpers';
+import { findNearestTimeStamp, makePlayer, loadVideo } from '../componentHelpers';
 // for displaying count of comments at intervals
 
 // note: should also move BarDatum and data transform logic out of component file
@@ -21,6 +21,7 @@ class DynamicBarChart extends React.Component {
     const anchor = findNearestTimeStamp(this.props.comments, data.timeLower);
     const element = document.getElementById(anchor.toString());
     element.scrollIntoView();
+    
 
   }
 
