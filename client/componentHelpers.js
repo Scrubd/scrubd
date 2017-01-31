@@ -28,7 +28,7 @@ export function makePlayer() {
   return new Player(iframe);
 }
 
-export function loadVideo(url, resolve, reject) {
+export function loadVideo(url) {
   const player = makePlayer();
   const splitUrl = url.split('/');
   const id = splitUrl[splitUrl.length - 1];
