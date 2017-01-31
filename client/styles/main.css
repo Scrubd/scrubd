@@ -46,7 +46,7 @@ body {
   margin-left: 2px;
 }
 
-.logout, .add: hover {
+.logout, .add:hover {
   color: #00ACE9;
 }
 
@@ -68,7 +68,8 @@ body {
   margin: 4px;
   text-align: center;
   background-color: #eeeeee;
-  height: 30px;
+  min-height: 30px;
+  word-wrap: break-word;
   border: #222222 solid 1px;
   border-radius: 3px;
 }
@@ -83,7 +84,7 @@ body {
 }
 
  .oneComment {
-  height: 50px;
+  min-height: 50px;
   width: 640px;
   display: inline-flex;
   background-color: #eeeeee;
@@ -91,6 +92,7 @@ body {
   margin: 2px 2px 2px 2px;
    border: #222222 solid 1px;
    border-radius: 2px;
+   word-wrap: break-word;
  }
 
 .oneComment li {
@@ -99,13 +101,13 @@ body {
 
 .userName {
   font-size: 0.9em;
-  padding: 2px 0 2px 2px;
+  padding: 2px 0 2px 0px;
   font-weight: bold;
 }
 
 .message {
   font-size: 1em;
-  padding-left: 6px;
+  padding-left: 4px;
   text-align: left;
 }
 
@@ -113,3 +115,6 @@ body {
   margin: 10px;
 }
 
+.btn {
+  margin-left: 2px;
+}
