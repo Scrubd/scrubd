@@ -28,7 +28,17 @@ body {
 .top {
   margin: 10px;
   border-radius: 5px 5px 5px 5px;
-}
+  }
+
+  .glyphicon {
+    background-color: transparent;
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  .glyphicon:hover {
+   color:#00ACE9;
+  }
 
 .logout, .add, .signUp {
   color: white;
