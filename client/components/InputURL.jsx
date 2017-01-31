@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { submitURL, fetchVideos } from '../actions/videoActions';
 import { fetchComments } from '../actions/commentsActions';
-import { loadVideo } from '../componentHelpers';
+import { loadVideo, makePlayer } from '../componentHelpers';
 
 const validUrl = require('valid-url');
 
@@ -10,6 +10,10 @@ class InputURL extends React.Component {
 
   videoSubmit() {
     event.preventDefault();
+    const player = makePlayer();
+    // player.getVideoTitle().then((title) => {
+      
+    // });
     let url = this.refs.url.value;
     this.refs.url.value = '';
     if (validUrl.isUri(url) && url.includes('vimeo')) {
