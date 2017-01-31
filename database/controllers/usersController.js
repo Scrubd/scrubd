@@ -11,7 +11,7 @@ module.exports = {
     const name = req.body.name;
     User.findOrCreate({ where: { name } })
       .spread((user, created) => {
-        const token = jwt.encode(user.dataValues, 'please do not see this, kthx'); // TODO: set to env variable
+        const token = jwt.encode(user.dataValues, process.env.JWT_KEY || 'please do not see this, kthx');
         if (created) {
           res.status(201).end(token);
         } else {
@@ -23,7 +23,7 @@ module.exports = {
       });
   },
   checkAuth: (req, res) => {
-    const token = jwt.decode(req.get('x-access-token'), 'please do not see this, kthx'); // TODO: set to env variable
+    const token = jwt.decode(req.get('x-access-token'), process.env.JWT_KEY || 'please do not see this, kthx');
     User.findOne({ where: { name: token.name } })
       .then((user) => {
         res.json(user.dataValues);
