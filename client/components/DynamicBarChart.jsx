@@ -19,8 +19,11 @@ class DynamicBarChart extends React.Component {
     });
     console.log("data is =================>" + data.timeLower + "and index is: " + index);
     const anchor = findNearestTimeStamp(this.props.comments, data.timeLower);
+    console.log("timeLower is =============>" + data.timeLower);
     const element = document.getElementById(anchor.toString());
-    element.scrollIntoView();
+    console.log("found anchor is -------------------------->" + anchor);
+    console.log("found element is -------------------------->" + element.getAttribute('id'));
+    element.scrollIntoView({block: "end", behavior: "smooth"});
     
 
   }
